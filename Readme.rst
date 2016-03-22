@@ -27,4 +27,4 @@ Python漫游指南
 - 测试：Jenkins和tox指南
 - 如何简便的从``git``连接``hg``
 
-如果你不习惯阅读reStructuredText，这里提供了一份几乎是同步更新的`HTML版本 <http://python-guide.jetz.io>`_。
+如果你不习惯阅读reStructuredText，这里提供了一份几乎是同步更新的 `HTML版本 <http://python-guide.jetz.io>`_。
