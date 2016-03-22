@@ -1,3 +1,3 @@
-* Establish "use this" vs "alternatives are...." recommendations
+* 创建 "使用这个" vs "可选的是..." 的推荐介绍
 
-.. todolist::
+.. 待办::

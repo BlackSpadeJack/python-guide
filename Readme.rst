@@ -1,34 +1,30 @@
-Hitchhiker's Guide to Python
+Python漫游指南
 ============================
 
-**Python Best Practices Guidebook**
+**Python最佳实践指南**
 
 -----------
 
-**Work in progress. If you'd like to help, please do. There's a lot of work to
-be done.**
-
-This guide is currently under heavy development. This opinionated guide
-exists to provide both novice and expert Python developers a best practice
-handbook to the installation, configuration, and usage of Python on a daily
-basis.
+**正在赶工中。如果你想帮忙，不要犹豫。目前还是有许多工作需要做~**
 
 
-Topics include:
+这份指南目前还在不断的更新和完善中。这是一份饱含自我见解的指南，主要是针对
+日常工作中Python的安装、配置和使用，为初学者和专业的Python开发者提供最佳实践。
 
-- Platform- and version-specific installations
+
+涉及主题如下:
+
+- 特定平台和版本的安装
 - Py2app, Py2exe, bbfreeze, pyInstaller
 - Pip
 - Numpy, scipy, statpy, pyplot, matplotlib
 - Virtualenv
 - Fabric
-- Exhaustive module recommendations, grouped by topic/purpose
-- Which libraries to use for what
-- Server configurations & tools for various web frameworks
-- Documentation: writing it
-- Testing: Jenkins & tox guides
-- How to easily interface ``hg`` from ``git``
+- 按主题/目的归类，对模块进行详尽全面的介绍推荐
+- 各个库是用来做什么的
+- 服务器配置以及各种web框架的工具
+- 写文档
+- 测试：Jenkins和tox指南
+- 如何简便的从``git``连接``hg``
 
-If you aren't fond of reading reStructuredText, there is an
-almost up-to-date `HTML version at docs.python-guide.org
-<http://docs.python-guide.org>`_.
+如果你不习惯阅读reStructuredText，这里提供了一份几乎是同步更新的`HTML版本 <http://python-guide.jetz.io>`_。
