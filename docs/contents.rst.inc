@@ -126,8 +126,3 @@ Contribution notes and legal information (for those interested).
    notes/contribute
    notes/license
    notes/styleguide
-
-
-
-
-
