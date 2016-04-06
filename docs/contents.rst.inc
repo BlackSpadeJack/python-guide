@@ -1,14 +1,14 @@
-Getting Started with Python
----------------------------
+开始吧
+-------
 
-New to Python? Let's properly setup up your Python environment.
+Python菜鸟? 来，先教你如何正确配置Python环境。
 
 .. toctree::
    :maxdepth: 2
 
    starting/which-python
 
-- Properly Install Python
+- 如何正确地安装Python
 
  .. toctree::
     :maxdepth: 1
@@ -20,10 +20,10 @@ New to Python? Let's properly setup up your Python environment.
 
 
 
-Writing Great Python Code
--------------------------
+写出优雅的代码
+---------------
 
-This part of the guide focuses on the best-practices for writing Python code.
+本章主要聚焦于编写Python代码的最佳实践。
 
 .. toctree::
    :maxdepth: 2
@@ -39,11 +39,10 @@ This part of the guide focuses on the best-practices for writing Python code.
 
 
 
-Scenario Guide for Python Applications
---------------------------------------
+Python应用场景
+---------------
 
-This part of the guide focuses on tool and module advice based on
-different scenarios.
+本章主要聚焦于不同场景下工具和模块的使用建议。
 
 .. toctree::
    :maxdepth: 2
@@ -67,10 +66,10 @@ different scenarios.
    scenarios/clibs
 
 
-Shipping Great Python Code
---------------------------
+Python代码打包
+---------------
 
-This part of the guide focuses on deploying your Python code.
+本章主要聚焦于Python代码的部署。
 
 .. toctree::
    :maxdepth: 2
@@ -79,11 +78,10 @@ This part of the guide focuses on deploying your Python code.
    shipping/freezing
 
 
-Python Development Environments
--------------------------------
+Python开发环境
+---------------
 
-This part of the guide focus on the Python development environment,
-and the best-practice tools that are available for writing Python code.
+本章主要聚焦于Python的开发环境以及编写Python代码工具的最佳实践。
 
 .. toctree::
    :maxdepth: 2
@@ -95,11 +93,11 @@ and the best-practice tools that are available for writing Python code.
 
 
 
-Additional Notes
-----------------
+附加说明
+---------
 
-This part of the guide, which is mostly prose, begins with some
-background information about Python, then focuses on next steps.
+本章内容比较单调，先介绍一些关于Python的背景，然后聚焦于接下来的内容。
+
 
 .. toctree::
    :maxdepth: 2
@@ -118,7 +116,7 @@ background information about Python, then focuses on next steps.
 
 --------------------------------------
 
-Contribution notes and legal information (for those interested).
+贡献说明以及法律信息（给那些感兴趣的人）。
 
 .. toctree::
    :maxdepth: 2
