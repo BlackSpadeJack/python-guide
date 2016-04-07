@@ -1,3 +1,6 @@
+.. image:: https://travis-ci.org/jetz/python-guide.svg?branch=master
+    :target: https://travis-ci.org/jetz/python-guide
+
 Python漫游指南
 ============================
 
