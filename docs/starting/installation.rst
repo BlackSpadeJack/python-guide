@@ -1,20 +1,15 @@
-Properly Installing Python
-==========================
+正确地安装Python
+=================
 
-There's a good chance that you already have Python on your operating system.
+其实，在你的系统中很可能已经内置安装好了Python。
 
-If so, you do not need to install or configure anything else to use Python.
-Having said that, I would strongly recommend that you install the tools and
-libraries described in the guides below before you start building Python
-applications for real-world use. In particular, you should always install
-Setuptools, Pip, and Virtualenv — they make it much easier for you to use
-other third-party Python libraries.
+如果是这样的话，不用额外的安装或者配置就能使用到Python。当然了，虽然话是这么说地，但还是强烈建议，在真正使用Python做实际开发前，按照下面指南中描述的步骤安装Python的工具和库。特别是Setuptools、Pip和Virtualenv这几个工具一定要安装 - 它们会让你更方便地使用其他第三方的库。
 
-Installation Guides
--------------------
+安装指南
+---------
 
-These guides go over the proper installation of :ref:`Python 2.7 <which-python>`
-for development purposes, as well as setuptools, pip, and virtualenv setup.
+这部分内容涉及了 :ref:`Python 2.7 <which-python>` 、setuptools、pip以及virtualenv
+的安装设置，为后续开发做准备。
 
 - :ref:`Mac OS X <install-osx>`.
 - :ref:`Microsoft Windows <install-windows>`.

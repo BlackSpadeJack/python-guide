@@ -1,148 +1,109 @@
-Picking an Interpreter
-======================
+选择一个解释器
+==============
 
 .. _which-python:
 
-The State of Python (2 vs 3)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Python的现状 (2 vs 3)
+~~~~~~~~~~~~~~~~~~~~~~~
 
-When choosing a Python interpreter, one looming question is always present:
-"Should I choose Python 2 or Python 3"? The answer is not as obvious as
-one might think.
+当选择Python解释器的时候，总会面临一个问题：“我该使用Python 2还是Python 3呢？” 答案并不会像我们想的那么明确。
 
 
-The basic gist of the state of things is as follows:
+目前Python现状的基本情形如下：
 
-1. Python 2.7 has been the standard for a *long* time.
-2. Python 3 introduced major changes to the language, which many developers are unhappy with.
-3. Python 2.7 will receive necessary security updates until 2020 [#pep373_eol]_.
-4. Python 3 is continually evolving, like Python 2 did in years past.
+1. Python 2.7 已经作为标配存在了 **很长** 一段时间。
+2. Python 3 在语言层面引入了重要的改变（不兼容），这使得很多开发者不愿意尝试。
+3. Python 2.7 将会继续发布必要的安全更新，直到2020 [#pep373_eol]_。
+4. Python 3 仍然在继续进化，就像过去几年Python 2所发生的那样。
 
-So, you can now see why this is not such an easy decision.
-
-
-Recommendations
-~~~~~~~~~~~~~~~
-
-I'll be blunt:
+瞧，你也可以看到，这就是为什么不是一个容易的决定。
 
 
-**Use Python 3 if...**
+建议
+~~~~~
 
-- You don't care.
-- You love Python 3.
-- You are indifferent towards 2 vs 3.
-- You don't know which one to use.
-- You embrace change.
-
-**Use Python 2 if...**
-
-- You love Python 2 and are saddened by the future being Python 3.
-- The stability requirements of your software would be improved by a language and runtime that never changes.
-- Software that you depend on requires it.
+我就直接说了：
 
 
-So.... 3?
-~~~~~~~~~
+**如果是下列情形，使用Python 3**
 
-If you're choosing a Python interpreter to use, and aren't opinionated, then I
-recommend you use the newest Python 3.x, since every version brings new and
-improved standard library modules, security and bug fixes. Progress is progress.
+- 版本无所谓。
+- 你对Python 3有深沉的爱。
+- 你毫不关心对于2 vs 3的问题。
+- 你不知道该用哪个版本。
+- 想拥抱变化.
 
-Given such, only use Python 2 if you have a strong reason to, such as a Python 2
-exclusive library which has no adequate Python 3 ready alternative, or you
-(like me) absolutely love and are inspired by Python 2.
+**如果是下列情形，使用Python 2**
 
-Check out `Can I Use Python 3? <https://caniusepython3.com/>`_ to see if any
-software you're depending on will block your adoption of Python 3.
+- 你爱Python 2，并且被Python 3的一些特性搞的黯然神伤。
+- 语言和运行时不再有变更时，可以提升软件的稳定性。
+- 你依赖的软件需要用到Python 2.
 
-`Further Reading <http://wiki.python.org/moin/Python2orPython3>`_
 
-It is possible to `write code that works on Python 2.6, 2.7, and Python 3
-<https://docs.python.org/3/howto/pyporting.html>`_. This
-ranges from trivial to hard depending upon the kind of software
-you are writing; if you're a beginner there are far more important things to
-worry about.
+那么，用Python 3咯？
+~~~~~~~~~~~~~~~~~~~~
 
-Implementations
-~~~~~~~~~~~~~~~
+如果你要选择Python解释器，并且不那么固执己见，那么我推荐使用最新的Python 3.x, 因为每个新版本都会在标准库、安全性以及BUG修复上有所提升。发展就是进步。
 
-When people speak of *Python* they often mean not just the language but also
-the CPython implementation. *Python* is actually a specification for a language
-that can be implemented in many different ways.
+考虑到这样，如果你有很重要的原因只能使用Python 2，例如用到了Python 2独有的库，该库Python 3中也没有备选方案，或者像我一样，极度喜欢Python 2，那么就使用Python 2。
+
+通过 `Can I Use Python 3? <https://caniusepython3.com/>`_ 检查你依赖的软件是否会妨碍你采用Python 3。
+
+`进一步阅读 <http://wiki.python.org/moin/Python2orPython3>`_
+
+`编写同时支持Python 2.6、2.7和Python 3 <https://docs.python.org/3/howto/pyporting.html>`_ 的代码是完全有可能的。至于难易程度，取决于你所编写软件的类型。如果你是新手，可能还有更重要的方面需要考虑。
+
+实现
+~~~~~
+
+当人们讨论 *Python* 的时候，通常不仅仅意味着这门编程语言，同时也指CPython实现。*Python* 实际上是一个规范，该规范有多种实现方式。
 
 CPython
 -------
 
-`CPython <http://www.python.org>`_ is the reference implementation of Python,
-written in C. It compiles Python code to intermediate bytecode which is then
-interpreted by a virtual machine. CPython provides the highest
-level of compatibility with Python packages and C extension modules.
+`CPython <http://www.python.org>`_ 是用C语言编写的一种参考实现，它会把Python代码编译成中间字节码供虚拟机来解释执行。CPython对Python的包和C扩展模块提供了最高程度的兼容。
 
-If you are writing open-source Python code and want to reach the widest possible
-audience, targeting CPython is best. To use packages which rely on C extensions
-to function, CPython is your only implementation option.
+如果你正在编写基于Python的开源代码，并且想让尽可能多的人受益，CPython可以说是最好的选择。如果使用的包依赖于C扩展，那么唯一的可选实现也只有CPython。
 
-All versions of the Python language are implemented in C because CPython is the
-reference implementation.
+所有版本的Python语言都是C实现的，因为CPython是其参考实现。
 
 PyPy
 ----
 
-`PyPy <http://pypy.org/>`_ is a Python interpreter implemented in a restricted
-statically-typed subset of the Python language called RPython. The interpreter
-features a just-in-time compiler and supports multiple back-ends (C, CLI, JVM).
+`PyPy <http://pypy.org/>`_ 是RPython实现的解释器，RPython是Python的子集，具有静态类型。这个解释器的特点是带有JIT编译器并且支持多种后端（C，CLI，JVM）。
 
-PyPy aims for maximum compatibility with the reference CPython implementation
-while improving performance.
+PyPy的目标是在提高性能的同时，最大限度的保持与CPython参考实现的兼容性。
 
-If you are looking to increase performance of your Python code, it's
-worth giving PyPy a try. On a suite of benchmarks, it's currently `over 5 times
-faster than CPython <http://speed.pypy.org/>`_.
+如果你想提高自己Python代码的性能，PyPy值得一试。在一套测试基准下，目前会`比CPython <http://speed.pypy.org/>快5倍以上`_。
 
-PyPy supports Python 2.7. PyPy3 [#pypy_ver]_, released in beta, targets Python 3.
+PyPy支持Python 2.7。PyPy3 [#pypy_ver]_, 目前处于beta阶段，目前是支持Python 3。
 
 Jython
 ------
 
-`Jython <http://www.jython.org/>`_ is a Python implementation that compiles
-Python code to Java bytecode which is then executed by the JVM (Java Virtual Machine).
-Additionally, it is able to import and use any Java class like a Python
-module.
+`Jython <http://www.jython.org/>`_ 是Python的另一种实现，它会把Python代码编译为Java的字节码，然后被JVM（Java虚拟机）执行。另外，该实现也可以像使用Python模块一样来使用Java的类。
 
-If you need to interface with an existing Java codebase or have other reasons to
-need to write Python code for the JVM, Jython is the best choice.
+如果你需要与现有的Java代码进行交互，或者有其他原因需要在JVM上使用Python，Jython是最好的选择。
 
-Jython currently supports up to Python 2.7. [#jython_ver]_
+Jython目前支持到Python 2.7。 [#jython_ver]_
 
 IronPython
 ----------
 
-`IronPython <http://ironpython.net/>`_  is an implementation of Python for the .NET
-framework. It can use both Python and .NET framework libraries, and can also
-expose Python code to other languages in the .NET framework.
+`IronPython <http://ironpython.net/>`_  是.NET框架上的实现。可以同时使用Python和.NET的库，并且可以让.NET上的其他语言来调用所写的Python代码。
 
-`Python Tools for Visual Studio <http://ironpython.net/tools/>`_ integrates
-IronPython directly into the Visual Studio development environment, making it
-an ideal choice for Windows developers.
+`Python Tools for Visual Studio <http://ironpython.net/tools/>`_ 把IronPython直接集成到了Visual Studio开发环境中，给Windows上的开发者提供了一个不错的选择。
 
-IronPython supports Python 2.7. [#iron_ver]_
+IronPython支持Python 2.7。 [#iron_ver]_
 
 PythonNet
 ---------
 
-`Python for .NET <http://pythonnet.github.io/>`_ is a package which
-provides near seamless integration of a natively installed Python
-installation with the .NET Common Language Runtime (CLR).  This is the
-inverse approach to that taken by IronPython (see above), to which it
-is more complementary than competing with.
+`Python for .NET <http://pythonnet.github.io/>`_ 作为一个包，为本地已安装的Python和.NET公共语言运行时(CLR)提供了无缝的集成。它采取与IronPython （见上文）相反的方法，与其说是竞争，不如说是互补。
 
-In conjunction with Mono, PythonNet enables native Python
-installations on non-Windows operating systems, such as OS X and
-Linux, to operate within the .NET framework.  It can be run in
-addition to IronPython without conflict.
+通过结合Mono, PythonNet可以让安装在非Windows操作系统（比如OS X和Linux）上的Python与.NET框架进行互操作。除了IronPython外，它也是可以毫无冲突运行的。
 
-PythonNet supports from Python 2.3 up to Python 2.7. [#pythonnet_ver]_
+PythonNet支持范围从Python 2.3到Python 2.7。 [#pythonnet_ver]_
 
 .. [#pypy_ver] http://pypy.org/compat.html
 
