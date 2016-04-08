@@ -1,6 +1,10 @@
 .. image:: https://travis-ci.org/jetz/python-guide.svg?branch=master
     :target: https://travis-ci.org/jetz/python-guide
 
+.. image:: https://readthedocs.org/projects/pyguide/badge/?version=latest
+    :target: http://python-guide.jetz.io/zh_CN/latest/?badge=latest
+    :alt: Documentation Status
+
 Python漫游指南
 ============================
 
