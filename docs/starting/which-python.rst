@@ -9,14 +9,14 @@ Python的现状 (2 vs 3)
 当选择Python解释器的时候，总会面临一个问题：“我该使用Python 2还是Python 3呢？” 答案并不会像我们想的那么明确。
 
 
-目前Python现状的基本情形如下：
+Python现状如下：
 
 1. Python 2.7 已经作为标配存在了 **很长** 一段时间。
-2. Python 3 在语言层面引入了重要的改变（不兼容），这使得很多开发者不愿意尝试。
-3. Python 2.7 将会继续发布必要的安全更新，直到2020 [#pep373_eol]_。
+2. Python 3 在语言层面引入了重大改变（不兼容），这使得很多开发者不愿意尝试。
+3. Python 2.7 将会继续发布必要的安全更新，直到2020年 [#pep373_eol]_。
 4. Python 3 仍然在继续进化，就像过去几年Python 2所发生的那样。
 
-瞧，你也可以看到，这就是为什么不是一个容易的决定。
+瞧，你也可以看到，这就是为什么不那么容易选择。
 
 
 建议
@@ -31,13 +31,13 @@ Python的现状 (2 vs 3)
 - 你对Python 3有深沉的爱。
 - 你毫不关心对于2 vs 3的问题。
 - 你不知道该用哪个版本。
-- 想拥抱变化.
+- 想拥抱变化。
 
 **如果是下列情形，使用Python 2**
 
 - 你爱Python 2，并且被Python 3的一些特性搞的黯然神伤。
 - 语言和运行时不再有变更时，可以提升软件的稳定性。
-- 你依赖的软件需要用到Python 2.
+- 你依赖的软件需要用到Python 2。
 
 
 那么，用Python 3咯？
@@ -45,13 +45,13 @@ Python的现状 (2 vs 3)
 
 如果你要选择Python解释器，并且不那么固执己见，那么我推荐使用最新的Python 3.x, 因为每个新版本都会在标准库、安全性以及BUG修复上有所提升。发展就是进步。
 
-考虑到这样，如果你有很重要的原因只能使用Python 2，例如用到了Python 2独有的库，该库Python 3中也没有备选方案，或者像我一样，极度喜欢Python 2，那么就使用Python 2。
+然而，如果你有很重要的原因只能使用Python 2，例如用到了Python 2独有的库，该库Python 3中也没有备选方案，或者像我一样，极度喜欢Python 2，那么就使用Python 2。
 
-通过 `Can I Use Python 3? <https://caniusepython3.com/>`_ 检查你依赖的软件是否会妨碍你采用Python 3。
+通过 `Can I Use Python 3? <https://caniusepython3.com/>`_ 可以检查你依赖的软件是否会妨碍你采用Python 3。
 
 `进一步阅读 <http://wiki.python.org/moin/Python2orPython3>`_
 
-`编写同时支持Python 2.6、2.7和Python 3 <https://docs.python.org/3/howto/pyporting.html>`_ 的代码是完全有可能的。至于难易程度，取决于你所编写软件的类型。如果你是新手，可能还有更重要的方面需要考虑。
+`编写同时支持Python 2.6、2.7和Python 3 <https://docs.python.org/3/howto/pyporting.html>`_ 的代码是完全有可能的。至于难易程度，取决于你所编写软件的类型。如果你是新手，优先考虑其他更重要的方面更切实际。
 
 实现
 ~~~~~
@@ -74,9 +74,9 @@ PyPy
 
 PyPy的目标是在提高性能的同时，最大限度的保持与CPython参考实现的兼容性。
 
-如果你想提高自己Python代码的性能，PyPy值得一试。在一套测试基准下，目前会`比CPython <http://speed.pypy.org/>快5倍以上`_。
+如果你想提高自己Python代码的性能，PyPy值得一试。在一套测试基准下，目前会 `比CPython快5倍以上 <http://speed.pypy.org/>`_ 。
 
-PyPy支持Python 2.7。PyPy3 [#pypy_ver]_, 目前处于beta阶段，目前是支持Python 3。
+PyPy支持Python 2.7。PyPy3 [#pypy_ver]_, 目前处于beta阶段，支持Python 3。
 
 Jython
 ------
@@ -99,9 +99,9 @@ IronPython支持Python 2.7。 [#iron_ver]_
 PythonNet
 ---------
 
-`Python for .NET <http://pythonnet.github.io/>`_ 作为一个包，为本地已安装的Python和.NET公共语言运行时(CLR)提供了无缝的集成。它采取与IronPython （见上文）相反的方法，与其说是竞争，不如说是互补。
+`Python for .NET <http://pythonnet.github.io/>`_ 作为一个包，为本地已安装的Python和.NET公共语言运行时（CLR)提供了无缝的集成。它采取与IronPython （见上文）相反的方法，与其说是竞争，不如说是互补。
 
-通过结合Mono, PythonNet可以让安装在非Windows操作系统（比如OS X和Linux）上的Python与.NET框架进行互操作。除了IronPython外，它也是可以毫无冲突运行的。
+通过结合Mono，PythonNet可以让安装在非Windows操作系统（比如OS X和Linux）上的Python与.NET框架进行互操作。除了IronPython外，它也是可以毫无冲突运行的。
 
 PythonNet支持范围从Python 2.3到Python 2.7。 [#pythonnet_ver]_
 

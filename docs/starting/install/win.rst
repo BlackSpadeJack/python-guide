@@ -3,19 +3,19 @@
 在Windows上安装Python
 ======================
 
-首先，到官网下载Python 2.7的`最新版本 <https://www.python.org/ftp/python/2.7.10/python-2.7.10.msi>`_。如果你想确保安装的是最新版本，在主页`Python.org web site <http://python.org>`_ 上点击Downloads > Windows链接。
+首先，到官网下载Python 2.7的 `最新版本 <https://www.python.org/ftp/python/2.7.10/python-2.7.10.msi>`_。如果你想确保安装的是最新版本，在 `官网主页 <http://python.org>`_ 上点击Downloads > Windows链接。
 
-Windows的Python以MSI的格式提供，双击即可安装。MSI格式的文件允许Windows管理员使用标准工具来自动安装。
+Windows的Python以MSI的格式提供，双击即可安装。MSI格式的文件允许Windows管理员使用标准工具来自动化安装。
 
-按照设计，Python会安装到带有版本号的目录中，例如，Python 2.7会安装到 :file:`C:\\Python27\\`，这样可以在系统上安装多个版本而不引起冲突。当然，对于Python文件，只有一个解释器可以作为默认的。这样的安装方式也不会自动修改环境变量:envvar:`PATH`，这样你就可以控制运行哪个Python版本。
+按照设计，Python会安装到带有版本号的目录中，例如，Python 2.7会安装到 :file:`C:\\Python27\\`，这样可以在系统上安装多个版本而不引起冲突。当然，对于Python文件，只能有一个解释器作为默认的。这样的安装方式也不会自动修改环境变量 :envvar:`PATH`，这样你就可以控制运行哪个Python版本。
 
-如果使用时，每次都输入Python解释器的完整路径，显得太麻烦，所以最好把默认版本的Python目录添加到环境变量:envvar:`PATH`。假设你的Python安装位置是:file:`C:\\Python27\\`，把下述内容添加到:envvar:`PATH`:
+如果使用时，每次都要输入Python解释器的完整路径，显得太麻烦，所以最好把默认版本的Python目录添加到环境变量 :envvar:`PATH`。假设你的Python安装位置是 :file:`C:\\Python27\\`，把下述内容添加到 :envvar:`PATH`：
 
 .. code-block:: console
 
     C:\Python27\;C:\Python27\Scripts\
 
-可以通过在 ``powershell`` 中运行下列命令来很容易做到这点：
+在 ``powershell`` 中运行下列命令可以很容易做到这点：
 
 .. code-block:: console
 
@@ -28,26 +28,24 @@ Windows的Python以MSI的格式提供，双击即可安装。MSI格式的文件�
 Setuptools + Pip
 ----------------
 
-最至关重要的两个第三方Python包是`setuptools <https://pypi.python.org/pypi/setuptools>`_ 和`pip <https://pip.pypa.io/en/stable/>`_。
+最至关重要的的第三方Python软件是Setuptools，该工具扩展了标准库中disutils的安装和打包功能。一旦安装好它们，你就可以使用一个简单的命令来下载、安装、卸载任何兼容的Python软件包。同时也可以很方便的利用它们在自己开发的Python软件里添加网络安装功能。
 
-最至关重要的的第三方Python软件是Setuptools，该工具扩展了标准库中disutils的安装和打包功能。一旦安装好它们，你就可以使用一个简单的命令来下载、安装、卸载任何兼容的Python软件。同时也可以很方便的利用它们在自己开发的Python软件里添加网络安装功能。
+通过运行 `ez_setup.py <https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py>`_ 这个脚本可以获得Windows上最新的Setuptools。
 
-通过运行`ez_setup.py <https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py>`_ 这个脚本可以获得Windows上最新的Setuptools。
+这时候就会新出现一个可以使用的命令：**easy_install**。不过这个命令已经被很多人认为废弃了，所以我们需要安装它的替代：**pip**。不像easy_install，Pip允许卸载安装好的包，并且维护也很活跃。
 
-这时候就会新出现一个可以使用的命令：**easy_install**。不过这个命令已经被很多人认为废弃了，所以我们需要安装它的替代：**pip**。不像easy_install，Pip允许卸载安装的包，并且维护也很好。
-
-运行脚本`get-pip.py <https://raw.github.com/pypa/pip/master/contrib/get-pip.py>`_ 可以安装pip。
+运行脚本 `get-pip.py <https://raw.github.com/pypa/pip/master/contrib/get-pip.py>`_ 可以安装pip。
 
 
-Virtual Environments
---------------------
+虚拟环境
+---------
 
-Virtual Environment主要是通过为各自创建虚拟的Python环境，把不同项目所依赖的包分隔在各自独立的空间内。这样就能解决“项目X依赖版本1.x，但是项目Y需要版本4.x”的窘境，同时保持全局site-packages目录的干净和可管理性。
+虚拟环境主要是通过为各自创建虚拟的Python环境，把不同项目所依赖的包分隔在各自独立的空间内。这样就能解决“项目X依赖版本1.x，但是项目Y需要版本4.x”的窘境，同时保持全局site-packages目录的干净和可管理性。
 
-例如，你可以工作在一个需要Django 1.3的项目上，同时维护一个依赖Django 1.0的项目。
+例如，你在一个需要Django 1.3的项目上进行开发，同时维护一个依赖Django 1.0的项目。
 
 请参考文档 :ref:`Virtual Environments <virtualenvironments-ref>` 来使用。也可以使用 :ref:`virtualenvwrapper <virtualenvwrapper-ref>` 来更简单的管理你的虚拟环境。
 
 --------------------------------
 
-本页`另外一篇文章 <http://www.stuartellis.eu/articles/python-development-windows/>`_ 的修改合成版本，与原文使用同样的许可证。
+本章是 `另外一篇文章 <http://www.stuartellis.eu/articles/python-development-windows/>`_ 的修改合成版本，与原文使用同样的许可证。
