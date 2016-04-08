@@ -1,86 +1,53 @@
 .. _install-windows:
 
-Installing Python on Windows
-============================
+在Windows上安装Python
+======================
 
-First, download the `latest version <https://www.python.org/ftp/python/2.7.10/python-2.7.10.msi>`_
-of Python 2.7 from the official Website. If you want to be sure you are installing a fully
-up-to-date version, click the Downloads > Windows link from the home page of the
-`Python.org web site <http://python.org>`_ .
+首先，到官网下载Python 2.7的`最新版本 <https://www.python.org/ftp/python/2.7.10/python-2.7.10.msi>`_。如果你想确保安装的是最新版本，在主页`Python.org web site <http://python.org>`_ 上点击Downloads > Windows链接。
 
-The Windows version is provided as an MSI package. To install it manually, just
-double-click the file. The MSI package format allows Windows administrators to
-automate installation with their standard tools.
+Windows的Python以MSI的格式提供，双击即可安装。MSI格式的文件允许Windows管理员使用标准工具来自动安装。
 
-By design, Python installs to a directory with the version number embedded,
-e.g. Python version 2.7 will install at :file:`C:\\Python27\\`, so that you can
-have multiple versions of Python on the
-same system without conflicts. Of course, only one interpreter can be the
-default application for Python file types. It also does not automatically
-modify the :envvar:`PATH` environment variable, so that you always have control over
-which copy of Python is run.
+按照设计，Python会安装到带有版本号的目录中，例如，Python 2.7会安装到 :file:`C:\\Python27\\`，这样可以在系统上安装多个版本而不引起冲突。当然，对于Python文件，只有一个解释器可以作为默认的。这样的安装方式也不会自动修改环境变量:envvar:`PATH`，这样你就可以控制运行哪个Python版本。
 
-Typing the full path name for a Python interpreter each time quickly gets
-tedious, so add the directories for your default Python version to the :envvar:`PATH`.
-Assuming that your Python installation is in :file:`C:\\Python27\\`, add this to your
-:envvar:`PATH`:
+如果使用时，每次都输入Python解释器的完整路径，显得太麻烦，所以最好把默认版本的Python目录添加到环境变量:envvar:`PATH`。假设你的Python安装位置是:file:`C:\\Python27\\`，把下述内容添加到:envvar:`PATH`:
 
 .. code-block:: console
 
     C:\Python27\;C:\Python27\Scripts\
 
-You can do this easily by running the following in ``powershell``:
+可以通过在 ``powershell`` 中运行下列命令来很容易做到这点：
 
 .. code-block:: console
 
     [Environment]::SetEnvironmentVariable("Path", "$env:Path;C:\Python27\;C:\Python27\Scripts\", "User")
 
-The second (:file:`Scripts`) directory receives command files when certain
-packages are installed, so it is a very useful addition.
-You do not need to install or configure anything else to use Python. Having
-said that, I would strongly recommend that you install the tools and libraries
-described in the next section before you start building Python applications for
-real-world use. In particular, you should always install Setuptools, as it
-makes it much easier for you to use other third-party Python libraries.
+当安装Python包时，一些新的命令会放置在上面的第二个目录（:file:`Scripts`）中，所以把这个目录添加到环境变量中是很有用的。
+
+虽然说使用Python前不需要额外的安装或者配置，但是我强烈建议你在开始构建Python应用程序前，按照下一节描述的步骤安装工具和库。特别的，任何时候你都该安装Setuptools和pip，这样会让你更方便的使用其他第三方Python库。
 
 Setuptools + Pip
 ----------------
 
-The most crucial third-party Python software of all is Setuptools, which
-extends the packaging and installation facilities provided by the distutils in
-the standard library. Once you add Setuptools to your Python system you can
-download and install any compliant Python software product with a single
-command. It also enables you to add this network installation capability to
-your own Python software with very little work.
+最至关重要的两个第三方Python包是`setuptools <https://pypi.python.org/pypi/setuptools>`_ 和`pip <https://pip.pypa.io/en/stable/>`_。
 
-To obtain the latest version of Setuptools for Windows, run the Python script
-available here: `ez_setup.py <https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py>`_
+最至关重要的的第三方Python软件是Setuptools，该工具扩展了标准库中disutils的安装和打包功能。一旦安装好它们，你就可以使用一个简单的命令来下载、安装、卸载任何兼容的Python软件。同时也可以很方便的利用它们在自己开发的Python软件里添加网络安装功能。
 
+通过运行`ez_setup.py <https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py>`_ 这个脚本可以获得Windows上最新的Setuptools。
 
-You'll now have a new command available to you: **easy_install**. It is
-considered by many to be deprecated, so we will install its replacement:
-**pip**. Pip allows for uninstallation of packages, and is actively maintained,
-unlike easy_install.
+这时候就会新出现一个可以使用的命令：**easy_install**。不过这个命令已经被很多人认为废弃了，所以我们需要安装它的替代：**pip**。不像easy_install，Pip允许卸载安装的包，并且维护也很好。
 
-To install pip, run the Python script available here:
-`get-pip.py <https://raw.github.com/pypa/pip/master/contrib/get-pip.py>`_
+运行脚本`get-pip.py <https://raw.github.com/pypa/pip/master/contrib/get-pip.py>`_ 可以安装pip。
 
 
 Virtual Environments
 --------------------
 
-A Virtual Environment is a tool to keep the dependencies required by different projects 
-in separate places, by creating virtual Python environments for them. It solves the 
-"Project X depends on version 1.x but, Project Y needs 4.x" dilemma, and keeps 
-your global site-packages directory clean and manageable.
+Virtual Environment主要是通过为各自创建虚拟的Python环境，把不同项目所依赖的包分隔在各自独立的空间内。这样就能解决“项目X依赖版本1.x，但是项目Y需要版本4.x”的窘境，同时保持全局site-packages目录的干净和可管理性。
 
-For example, you can work on a project which requires Django 1.3 while also
-maintaining a project which requires Django 1.0.
+例如，你可以工作在一个需要Django 1.3的项目上，同时维护一个依赖Django 1.0的项目。
 
-To start using this and see more information: :ref:`Virtual Environments <virtualenvironments-ref>` docs. 
-
+请参考文档 :ref:`Virtual Environments <virtualenvironments-ref>` 来使用。也可以使用 :ref:`virtualenvwrapper <virtualenvwrapper-ref>` 来更简单的管理你的虚拟环境。
 
 --------------------------------
 
-This page is a remixed version of `another guide <http://www.stuartellis.eu/articles/python-development-windows/>`_,
-which is available under the same license.
+本页`另外一篇文章 <http://www.stuartellis.eu/articles/python-development-windows/>`_ 的修改合成版本，与原文使用同样的许可证。
