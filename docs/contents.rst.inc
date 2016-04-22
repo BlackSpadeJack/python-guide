@@ -109,9 +109,7 @@ Python开发环境
    intro/news
 
 .. note::
-   Notes defined within all diatonic and chromatic musical scales have been
-   intentionally excluded from this list of additional notes. Additionally,
-   this note.
+   所有的全音阶和半音音阶中定义的注意事项已经有意从附加说明这个名单中排除。除了此说明。
 
 
 --------------------------------------

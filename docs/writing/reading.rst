@@ -17,7 +17,7 @@ understand, and comprehend excellent code.
 
 
 Excellent code typically follows the guidelines outlined in
-:ref:`code_style`, and does its best to express a clear and concise
+:ref:`代码风格`, and does its best to express a clear and concise
 intent to the reader.
 
 Included below is a list of recommended Python projects for

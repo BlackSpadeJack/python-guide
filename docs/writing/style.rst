@@ -1,7 +1,7 @@
-.. _code_style:
+.. _代码风格:
 
-Code Style
-==========
+代码风格
+=========
 
 If you ask Python programmers what they like most in Python, they will
 often say its high readability.  Indeed, a high level of readability

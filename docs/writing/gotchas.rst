@@ -228,14 +228,3 @@ Here's nice trick for removing all of these files, if they already exist::
 
 Run that from the root directory of your project, and all ``.pyc`` files
 will suddenly vanish. Much better.
-
-
-
-
-
-
-
-
-
-
-

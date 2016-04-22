@@ -1,64 +1,41 @@
-Structuring Your Project
-========================
+组织好你的项目
+==============
 
-By "structure" we mean the decisions you make concerning
-how your project best meets its objective. We need to consider how to
-best leverage Python's features to create clean, effective code.
-In practical terms, "structure" means making clean code whose logic and
-dependencies are clear as well as how the files and folders are organized
-in the filesystem.
+这里的 "组织" 意思是，为了让你的项目能达到最佳目标而做出的抉择。我们需要考虑如何最大限度的利用Python的特性来创建简洁高效的代码。从实际中的角度来说，"组织" 就是为了让代码的逻辑和依赖足够清晰明了，类似于文件系统中文件和目录的组织那样一目了然。 
 
-Which functions should go into which modules? How does data flow through
-the project? What features and functions can be grouped together and
-isolated? By answering questions like these you can begin to plan, in
-a broad sense, what your finished product will look like.
+哪些功能应该在哪些模块？项目中的数据流是如何进行的？哪些特性和功能应该被组织到一起或者分离开？通过回答这类问题就可以开始对你的项目有一些计划，换言之就是你对最终的产品形态有了一定的想法。
 
-In this section we take a closer look at Python's module and import
-systems as they are the central elements to enforcing structure in your
-project. We then discuss various perspectives on how to build code which
-can be extended and tested reliably.
+本节我们将详细了解Python的模块和导入系统，因为这两部分是组织好一个项目的核心元素。然后，我们会从多个方面讨论如何构建具有高扩展性和可靠性的代码。
 
 
+仓库的组织
+------------
 
-Structure of the Repository
----------------------------
+是的，这很重要！
+::::::::::::::::::::
 
-It's Important.
-:::::::::::::::
+正如在一个健康的开发周期中，代码风格、API设计以及自动化都是必不可少的一样，项目仓库的组织可以说是项目 `架构 <http://www.amazon.com/gp/product/1257638017/ref=as_li_ss_tl?ie=UTF8&tag=bookforkind-20&linkCode=as2&camp=1789&creative=39095&creativeASIN=1257638017>`__ 中最为关键的一部分。
 
-Just as Code Style, API Design, and Automation are essential for a
-healthy development cycle, Repository structure is a crucial part of
-your project's
-`architecture <http://www.amazon.com/gp/product/1257638017/ref=as_li_ss_tl?ie=UTF8&tag=bookforkind-20&linkCode=as2&camp=1789&creative=39095&creativeASIN=1257638017>`__.
+当一个潜在的用户或者贡献者来到项目仓库的页面，他们会看到以下一些东西：
 
-When a potential user or contributor lands on your repository's page,
-they see a few things:
+-  项目名
+-  项目描述
+-  一大堆的文件
 
--  Project Name
--  Project Description
--  Bunch O' Files
+只有当他们的滚动条到达目录的下方时，才会看到项目的README。
 
-Only when they scroll below the fold will the user see your project's
-README.
+如果你的仓库里面是一大堆垃圾一样的文件或者各种杂乱嵌套的目录，即使你的文档再优秀，这些人也很有可能在阅读之前已经跑去其他地方了。
 
-If your repo is a massive dump of files or a nested mess of directories,
-they might look elsewhere before even reading your beautiful
-documentation.
+    如果你以后想当总统，就不能穿的像个打工仔。
 
-    Dress for the job you want, not the job you have.
+当然，第一印象不能代表一切。你和你的同伴可能会花费不计其数的时间在这个仓库上，最终对于项目里的各种犄角旮旯都能如数家珍。总之，仓库的设计依然是很重要的。
 
-Of course, first impressions aren't everything. You and your colleagues
-will spend countless hours working with this repository, eventually
-becoming intimately familiar with every nook and cranny. The layout of
-it is important.
+示例仓库
+::::::::::
 
-Sample Repository
-:::::::::::::::::
+**tl;dr（太长了，不读了）**: 这就是 `Kenneth Reitz <http://kennethreitz.org>`_ 的建议。
 
-**tl;dr**: This is what `Kenneth Reitz <http://kennethreitz.org>`_ recommends.
-
-This repository is `available on
-GitHub <https://github.com/kennethreitz/samplemod>`__.
+下面这个仓库 `在GitHub <https://github.com/kennethreitz/samplemod>`__ 上可以找到。
 
 ::
 
@@ -74,54 +51,47 @@ GitHub <https://github.com/kennethreitz/samplemod>`__.
     tests/test_basic.py
     tests/test_advanced.py
 
-Let's get into some specifics.
+我们来讨论下里面的一些细节。
 
-The Actual Module
+真正的模块部分
 :::::::::::::::::
 
 .. csv-table::
    :widths: 20, 40
 
-   "Location", "``./sample/`` or ``./sample.py``"
-   "Purpose", "The code of interest"
+   "位置", "``./sample/`` or ``./sample.py``"
+   "用途", "感兴趣的项目核心代码"
 
-
-Your module package is the core focus of the repository. It should not
-be tucked away:
+这个模块是仓库的核心部分，这部分不应当被隐藏起来。
 
 ::
 
     ./sample/
 
-If your module consists of only a single file, you can place it directly
-in the root of your repository:
+如果你的模块仅仅包含一个单独的文件，你可以把这个文件直接放在仓库的根目录下。
 
 ::
 
     ./sample.py
 
-Your library does not belong in an ambiguous src or python subdirectory.
+你的这个库不应该放在一个模棱两可、叫做src的目录或者名为python的子目录。
 
-License
+许可证
 :::::::
 
 
 .. csv-table::
    :widths: 20, 40
 
-   "Location", "``./LICENSE``"
-   "Purpose", "Lawyering up."
+   "位置", "``./LICENSE``"
+   "用途", "法律说明"
 
 
-This is arguably the most important part of your repository, aside from
-the source code itself. The full license text and copyright claims
-should exist in this file.
+这可以认为是除了代码本身之外仓库中最为重要的一部分。许可证的全文和版权申明都在这个文件中。
 
-If you aren't sure which license you should use for your project, check
-out `choosealicense.com <http://choosealicense.com>`_.
+如果你不确定使用哪种许可证，到这里看看 `choosealicense.com <http://choosealicense.com>`_ 。
 
-Of course, you are also free to publish code without a license, but this
-would prevent many people from potentially using your code.
+当然了，你也可以不用包含许可证，不过这可能会潜在的阻碍许多人使用你的代码，毕竟怕出什么幺蛾子。
 
 Setup.py
 ::::::::
@@ -129,83 +99,68 @@ Setup.py
 .. csv-table::
    :widths: 20, 40
 
-   "Location", "``./setup.py``"
-   "Purpose", "Package and distribution management."
+   "位置", "``./setup.py``"
+   "用途", "打包与分发管理"
 
+如果你的模块包在仓库的根目录下，很显然这个文件也应该在根目录下。
 
-If your module package is at the root of your repository, this should
-obviously be at the root as well.
-
-Requirements File
-:::::::::::::::::
-
-.. csv-table::
-   :widths: 20, 40
-
-   "Location", "``./requirements.txt``"
-   "Purpose", "Development dependencies."
-
-
-A `pip requirements
-file <https://pip.pypa.io/en/stable/user_guide/#requirements-files>`__
-should be placed at the root of the repository. It should specify the
-dependencies required to contribute to the project: testing, building,
-and generating documentation.
-
-If your project has no development dependencies, or you prefer
-development environment setup via ``setup.py``, this file may be
-unnecessary.
-
-Documentation
+依赖说明文件
 :::::::::::::
 
+.. csv-table::
+   :widths: 20, 40
+
+   "位置", "``./requirements.txt``"
+   "用途", "项目开发中的依赖"
+
+
+`pip依赖文件 <https://pip.pypa.io/en/stable/user_guide/#requirements-files>`__  应该放置在仓库的根目录下。这个文件应该详细列出项目所依赖的库，包括测试、构建以及文档生成所用到的。
+
+如果你的项目没有依赖，或者你更喜欢用 ``setup.py`` 来设置，那这个文件也可以不需要。
+
+文档
+::::::
+
 
 .. csv-table::
    :widths: 20, 40
 
-   "Location", "``./docs/``"
-   "Purpose", "Package reference documentation."
+   "位置", "``./docs/``"
+   "用途", "包的说明文档"
 
-There is little reason for this to exist elsewhere.
+毫无疑问，这部分别无他处。
 
-Test Suite
+测试套件
 ::::::::::
 
 
 .. csv-table::
    :widths: 20, 40
 
-   "Location", "``./test_sample.py`` or ``./tests``"
-   "Purpose", "Package integration and unit tests."
+   "位置", "``./test_sample.py`` or ``./tests``"
+   "用途", "包的集成测试和单元测试"
 
-Starting out, a small test suite will often exist in a single file:
+开始的时候，测试套件通常可能只是一个单独的文件：
 
 ::
 
     ./test_sample.py
 
-Once a test suite grows, you can move your tests to a directory, like
-so:
+一旦测试套件增多，就应该把这些测试移到一个目录中，就像下面这样：
 
 ::
 
     tests/test_basic.py
     tests/test_advanced.py
 
-Obviously, these test modules must import your packaged module to test
-it. You can do this a few ways:
+很明显，这些测试模块需要从核心代码模块中导入来进行测试。具体可以通过以下几种方式：
 
--  Expect the package to be installed in site-packages.
--  Use a simple (but *explicit*) path modification to resolve the
-   package properly.
+- 假设待测试的包已经预先安装在site-packages中。
+- 使用简单（但是 *显式*）的方式修改路径来正确的解析出包。
 
-I highly recommend the latter. Requiring a developer to run
-`setup.py <http://setup.py>`__ develop to test an actively changing
-codebase also requires them to have an isolated environment setup for
-each instance of the codebase.
+本人强烈推荐后一种方式。让一个开发人员通过运行 `setup.py <http://setup.py>`__ 来测试还在不断变化的代码，这种方式要求为每次改变后的代码部分设置隔离环境，太不友好了吧。
 
-To give the individual tests import context, create a tests/context.py
-file:
+为了给测试提供独立的导入上下文，创建一个tests/context.py文件：
 
 ::
 
@@ -215,18 +170,15 @@ file:
 
     import sample
 
-Then, within the individual test modules, import the module like so:
+然后在这个独立测试模块中，按如下方式导入待测试模块：
 
 ::
 
     from .context import sample
 
-This will always work as expected, regardless of installation method.
+不管安装位置在哪里，这种方式总会按照预期工作。
 
-Some people will assert that you should distribute your tests within
-your module itself -- I disagree. It often increases complexity for your
-users; many test suites often require additional dependencies and
-runtime contexts.
+一些人主张分发代码模块的同时一并分发测试代码 -- 本人是反对的。这样通常会给你的用户增加复杂性，许多测试套件通常需要额外的依赖和运行时上下文。
 
 Makefile
 ::::::::
@@ -235,16 +187,13 @@ Makefile
 .. csv-table::
    :widths: 20, 40
 
-   "Location", "``./Makefile``"
-   "Purpose", "Generic management tasks."
+   "位置", "``./Makefile``"
+   "用途", "通用任务管理"
 
 
-If you look at most of my projects or any Pocoo project, you'll notice a
-Makefile laying around. Why? These projects aren't written in C... In
-short, make is a incredibly useful tool for defining generic tasks for
-your project.
+如果你留意我的大部分项目或者Pocoo团队的任何一个项目，你会注意到都有一个Makefile文件。为啥？这些项目并不是C语言写的... 简而言之，make是一个极其有用的任务管理工具，可以简单的定义项目中常见的任务。（译者注：为毛不是SCons？）
 
-**Sample Makefile:**
+**Makefile示例：**
 
 ::
 
@@ -254,24 +203,20 @@ your project.
     test:
         py.test tests
 
-Other generic management scripts (e.g. ``manage.py``
-or ``fabfile.py``) belong at the root of the repository as well.
+其他常见的管理脚本（例如 ``manage.py`` 或者 ``fabfile.py``）也应当在仓库的根目录下。
 
-Regarding Django Applications
-:::::::::::::::::::::::::::::
+关于Django应用
+:::::::::::::::
 
-I've noticed a new trend in Django applications since the release of
-Django 1.4. Many developers are structuring their repositories poorly
-due to the new bundled application templates.
+自从Django 1.4发布以后，我在Django应用中注意到了一种新的趋势。由于Django自带的新模板系统，导致许多开发者把他们的项目仓库组织的很糟糕。
 
-How? Well, they go to their bare and fresh repository and run the
-following, as they always have:
+怎么个糟糕法？这么说吧，他们会进入新建的仓库目录，然后一如往常的执行如下命令：
 
 ::
 
     $ django-admin.py start-project samplesite
 
-The resulting repository structure looks like this:
+其结果就是仓库结构看起来如下：
 
 ::
 
@@ -281,21 +226,19 @@ The resulting repository structure looks like this:
     samplesite/samplesite/wsgi.py
     samplesite/samplesite/sampleapp/models.py
 
-Don't do this.
+别再这么干了，伙计。
 
-Repetitive paths are confusing for both your tools and your developers.
-Unnecessary nesting doesn't help anybody (unless they're nostalgic for
-monolithic SVN repos).
+重复的路径会让你的工具和开发人员产生迷惑。不必要的嵌套与人无益（除非他们依然怀念庞大的SVN仓库）。
 
-Let's do it properly:
+正确的做法是：
 
 ::
 
     $ django-admin.py start-project samplesite .
 
-Note the "``.``".
+注意最后的那个 "``.``"。
 
-The resulting structure:
+这种方式操作的结果如下：
 
 ::
 
@@ -307,279 +250,135 @@ The resulting structure:
 
 
 
+代码的组织是关键
+-----------------
 
-Structure of Code is Key
-------------------------
+受益于Python处理导入和模块的方式，Python项目的组织相对容易很多。这里说的容易是指模块导入的概念很容易理解，并且不会受到太多的约束。因此，你可以更专注于项目中不同部分的交互，专注于纯架构上的任务。
 
-Thanks to the way imports and modules are handled in Python, it is
-relatively easy to structure a Python project. Easy, here, means
-that you do not have many constraints and that the module
-importing model is easy to grasp. Therefore, you are left with the
-pure architectural task of crafting the different parts of your
-project and their interactions.
+换句话说，一个项目很容易组织也意味着可能会组织的很糟糕，毕竟组织起来可能会很随意。以下是一些糟糕组织方式的信号：
 
-Easy structuring of a project means it is also easy
-to do it poorly. Some signs of a poorly structured project
-include:
+- 数量众多且杂乱的循环依赖：如果文件 :file:`furn.py` 中的类Table和Chair需要导入文件 :file:`workers.py` 中的类Carpenter（木匠），以便可以回答类似 ``table.isdoneby()`` 的问题，同时类Carpenter也需要导入Table和Chair来回答 ``carpenter.whatdo()`` 的问题，这时候就会产生循环依赖。这时候，你不得不采用一些奇技淫巧来解决这个问题，比如在方法或者函数中使用导入语句。
 
-- Multiple and messy circular dependencies: if your classes
-  Table and Chair in :file:`furn.py` need to import Carpenter from
-  :file:`workers.py` to answer a question such as ``table.isdoneby()``,
-  and if conversely the class Carpenter needs to import Table and Chair,
-  to answer the question ``carpenter.whatdo()``, then you
-  have a circular dependency. In this case you will have to resort to
-  fragile hacks such as using import statements inside
-  methods or functions.
+- 隐式耦合：每当对Table的实现进行微小改变时，就会由于破坏了Carpenter中的代码，进而导致不相关的测试套件中20来个测试无法运行，因此需要在修改时做小心翼翼的诊断工作。这也就意味着你对Carpenter代码中的Table需要做太多的假设，反之亦然。
 
-- Hidden coupling: each and every change in Table's implementation
-  breaks 20 tests in unrelated test cases because it breaks Carpenter's code,
-  which requires very careful surgery to adapt the change. This means
-  you have too many assumptions about Table in Carpenter's code or the
-  reverse.
+- 大量使用全局变量或者上下文：Table和Carpenter依赖全局变量，而不是通过显示的互相传递 ``(height, width, type, wood)`` 来进行交互，而这些全局变量是可以被不同地方动态修改的。为了知道矩形的桌子为什么突然变成了正方形，你需要仔细检查每一个可能会接触到全局变量的地方，然后又发现远程模板代码也正在修改相关的上下文环境，使得桌子的外形更加难捉摸。
 
-- Heavy usage of global state or context: instead of explicitly
-  passing ``(height, width, type, wood)`` to each other, Table
-  and Carpenter rely on global variables that can be modified
-  and are modified on the fly by different agents. You need to
-  scrutinize all access to these global variables to understand why
-  a rectangular table became a square, and discover that remote
-  template code is also modifying this context, messing with
-  table dimensions.
+- 意大利面条式代码：所谓的意大利面条式代码就是占了几页的if语句和循环语句，同时还伴随着一坨没有良好分界、纯粹复制黏贴过来的代码。Python中通过缩进来组织代码的方式（这也是最有争议的一个特性）使得维护这样的代码很费力。不过好消息是，你不会见到很多这样的代码。
 
-- Spaghetti code: multiple pages of nested if clauses and for loops
-  with a lot of copy-pasted procedural code and no
-  proper segmentation are known as spaghetti code. Python's
-  meaningful indentation (one of its most controversial features) make
-  it very hard to maintain this kind of code. So the good news is that
-  you might not see too much of it.
-
-- Ravioli code is more likely in Python: it consists of hundreds of
-  similar little pieces of logic, often classes or objects, without
-  proper structure. If you never can remember if you have to use
-  FurnitureTable, AssetTable or Table, or even TableNew for your
-  task at hand, you might be swimming in ravioli code.
+- 意大利饺子式代码：这种代码在Python中更常见，包含了数以百计相似的逻辑代码，这些代码片段都很小，通常是没有很好组织的类或者对象。就之前的题目而言，如果你从来没想到是否该用FurnitureTable、AssetTable或者Table甚至TableNew来完成手头的工作，那么你很可能已经在意大利饺子式的代码中遨游了。
 
 
-Modules
+模块
 -------
 
-Python modules are one of the main abstraction layers available and probably the
-most natural one. Abstraction layers allow separating code into parts holding
-related data and functionality.
+Python的模块可以说是目前已知的主要抽象层中的一个，也可能是最为自然的一个。抽象层允许把代码分割开来，与具体的数据和功能部分放在一起。
 
-For example, a layer of a project can handle interfacing with user actions,
-while another would handle low-level manipulation of data. The most natural way
-to separate these two layers is to regroup all interfacing functionality
-in one file, and all low-level operations in another file. In this case,
-the interface file needs to import the low-level file. This is done with the
-``import`` and ``from ... import`` statements.
+例如，项目中的一层可以处理与用户操作进行的对接部分，另一层处理低层次的数据操作。分离这两部分最自然的方式就是把接口性功能的代码放置在一个文件中，所有低层次操作放在另一个文件中。这种方式下，包含接口代码的文件需要导入包含低层次操作代码的文件。可以通过 ``import`` 和 ``from ... import`` 语句来实现。
 
-As soon as you use `import` statements you use modules. These can be either
-built-in modules such as `os` and `sys`, third-party modules you have installed
-in your environment, or your project's internal modules.
+一旦你使用了 `import` 语句，你就已经使用了模块。这些模块可能是类似 `os` 和 `sys` 的内置模块，环境中安装的第三方模块，抑或是项目中的内部模块。
 
-To keep in line with the style guide, keep module names short, lowercase, and
-be sure to avoid using special symbols like the dot (.) or question mark (?).
-So a file name like :file:`my.spam.py` is one you should avoid! Naming this way
-will interfere with the way Python looks for modules.
+为了与风格指南章节部分保持一致，模块名应该简短、小写，并且避免使用点号(.)或者问号(?)等特殊符号。所以，:file:`my.spam.py` 这种文件名是应当避免的！如此命名会干扰到Python查找模块的方式。
 
-In the case of `my.spam.py` Python expects to find a :file:`spam.py` file in a
-folder named :file:`my` which is not the case. There is an
-`example <http://docs.python.org/tutorial/modules.html#packages>`_ of how the
-dot notation should be used in the Python docs.
+在 `my.spam.py` 这种命名的情形中，Python会解释为去名叫 :file:`my` 的目录中查找 :file:`spam.py` 文件，显然这不是我们的初衷。这里有一个 `示例 <http://docs.python.org/tutorial/modules.html#packages>`_ ，很好的说明了点号应当如何使用。
 
-If you'd like you could name your module :file:`my_spam.py`, but even our
-friend the underscore should not be seen often in module names.
+尽管你可以按照你的想法把你的模块命名为 :file:`my_spam.py`，但是尽量少在模块名中使用下划线。
 
-Aside from some naming restrictions, nothing special is required for a Python
-file to be a module, but you need to understand the import mechanism in order
-to use this concept properly and avoid some issues.
+除了一些命名限制，没有其他特殊要求，Python文件就可以看作一个模块，但是，如果你想正确的使用模块的概念，避免一些问题，最好还是真正理解导入机制的原理。
 
-Concretely, the ``import modu`` statement will look for the proper file, which
-is :file:`modu.py` in the same directory as the caller if it exists.  If it is
-not found, the Python interpreter will search for :file:`modu.py` in the "path"
-recursively and raise an ImportError exception if it is not found.
+具体来说，语句 ``import modu`` 会寻找同一目录下的文件 :file:`modu.py` 作为调用者。如果同目录下没有找到，Python解释器会递归的在"path"中查找文件 :file:`modu.py`，如果都没有找到，则引起ImportError的错误。 
 
-Once :file:`modu.py` is found, the Python interpreter will execute the module in
-an isolated scope. Any top-level statement in :file:`modu.py` will be executed,
-including other imports if any. Function and class definitions are stored in
-the module's dictionary.
+一旦文件 :file:`modu.py` 找到，Python解释器就会在一个独立的作用域中执行这个模块。:file:`modu.py` 中任何顶层的语句都会被执行，包括从其他模块中引入的那些。函数和类定义会存储到模块的字典里。
 
-Then, the module's variables, functions, and classes will be available to the
-caller through the module's namespace, a central concept in programming that is
-particularly helpful and powerful in Python.
+然后，模块中的变量、函数和类就可以在调用者中通过被导入模块的命名空间来使用。命名空间是Python编程中特别有用且功能强大的核心概念。
 
-In many languages, an ``include file`` directive is used by the preprocessor to
-take all code found in the file and 'copy' it into the caller's code. It is
-different in Python: the included code is isolated in a module namespace, which
-means that you generally don't have to worry that the included code could have
-unwanted effects, e.g. override an existing function with the same name.
+在许多编程语言中，有一个 ``include file`` 的指令来让预处理器把被包含文件中的代码拷贝到调用者中。Python中却并不是这样：被包含的代码有自己独立的模块命名空间，这意味着你通常可以不用太担心被包含的代码产生副作用，例如覆盖同名的函数等。
 
-It is possible to simulate the more standard behavior by using a special syntax
-of the import statement: ``from modu import *``. This is generally considered
-bad practice. **Using** ``import *`` **makes code harder to read and makes
-dependencies less compartmentalized**.
+通过特殊的导入语法 ``from modu import *`` 可以模拟更加标准的行为。但这通常被认为是不好的习惯。**使用** ``import *`` **会使得代码很难读，不知道导入了些什么，并且使得依赖不那么封闭，用到没用到的都导入** 。
 
-Using ``from modu import func`` is a way to pinpoint the function you want to
-import and put it in the global namespace. While much less harmful than ``import
-*`` because it shows explicitly what is imported in the global namespace, its
-only advantage over a simpler ``import modu`` is that it will save a little
-typing.
 
-**Very bad**
+使用 ``from modu import func`` 这种方式可以很明确的导入需要的函数，并且放在模块的全局命名空间中。这样带来的危害会远远小于 ``import *`` 这种方式，因为可以显式的指明全局命名空间中导入的是什么，这种方式对于更简单的 ``import modu`` 而言，唯一的优势就是后面可以不用输入模块名，节省了一捏捏的输入成本。
+
+**不好的方式**
 
 .. code-block:: python
 
     [...]
     from modu import *
     [...]
-    x = sqrt(4)  # Is sqrt part of modu? A builtin? Defined above?
+    x = sqrt(4)  # sqrt是modu的一部分？内置的？还是上面定义的？
 
-**Better**
+**较好的方式**
 
 .. code-block:: python
 
     from modu import sqrt
     [...]
-    x = sqrt(4)  # sqrt may be part of modu, if not redefined in between
+    x = sqrt(4)  # sqrt是modu的一部分，当然了，前提是从import到这里中间没有重新定义过
 
-**Best**
+**最好的方式**
 
 .. code-block:: python
 
     import modu
     [...]
-    x = modu.sqrt(4)  # sqrt is visibly part of modu's namespace
+    x = modu.sqrt(4)  # 毫无疑问，sqrt就是modu的一部分
 
-As mentioned in the :ref:`code_style` section, readability is one of the main
-features of Python. Readability means to avoid useless boilerplate text and
-clutter, therefore some efforts are spent trying to achieve a certain level of
-brevity. But terseness and obscurity are the limits where brevity should stop.
-Being able to tell immediately where a class or function comes from, as in the
-``modu.func`` idiom, greatly improves code readability and understandability in
-all but the simplest single file projects.
+正如 :ref:`代码风格` 章节提到的，可读性是Python的主要特性之一。可读性意味着避免无用的重复文字和杂乱的东西，因此，Python中花费了不少努力来达到一定程度的简短。但是太简短会导致晦涩，所以简短应该在简洁和晦涩中找到一个平衡点。 ``modu.func`` 这种形式可以很直接的说明类或者函数来自哪里，对于不仅仅只包含一个文件的项目来说，可以极大的提高代码的可读性和可理解性。
 
 
-Packages
---------
+包
+----
 
-Python provides a very straightforward packaging system, which is simply an
-extension of the module mechanism to a directory.
+Python提供了非常直接的包系统，就是简单的把模块机制扩展到了目录层面（译者注：模块是基于文件）。
 
-Any directory with an :file:`__init__.py` file is considered a Python package.
-The different modules in the package are imported in a similar manner as plain
-modules, but with a special behavior for the :file:`__init__.py` file, which is
-used to gather all package-wide definitions.
+任何包含 :file:`__init__.py` 文件的目录都可以认为是一个Python包。包内的不同模块可以像普通模块那样导入，但是，:file:`__init__.py` 文件比较特殊，这个文件主要用来把包内部的各种定义集中到一起。
 
-A file :file:`modu.py` in the directory :file:`pack/` is imported with the
-statement ``import pack.modu``. This statement will look for an
-:file:`__init__.py` file in :file:`pack`, execute all of its top-level
-statements. Then it will look for a file named :file:`pack/modu.py` and
-execute all of its top-level statements. After these operations, any variable,
-function, or class defined in :file:`modu.py` is available in the pack.modu
-namespace.
+目录 :file:`pack/` 中的文件 :file:`modu.py` 可以通过语句 ``import pack.modu`` 来导入。该语句会去目录 :file:`pack` 中寻找文件 :file:`__init__.py` ，并执行这个文件中的顶层语句。然后再去寻找 :file:`pack/modu.py` 文件，也执行其中所有的顶层语句。完成这些动作之后，:file:`modu.py` 中的任何变量、函数或者类就都可以在pack.modu的命名空间中使用了。
 
-A commonly seen issue is to add too much code to :file:`__init__.py`
-files. When the project complexity grows, there may be sub-packages and
-sub-sub-packages in a deep directory structure. In this case, importing a
-single item from a sub-sub-package will require executing all
-:file:`__init__.py` files met while traversing the tree.
+一个常见的问题是在 :file:`__init__.py` 中添加太多的代码。当项目的复杂程度逐渐增加时，目录结构的层次也会随之增加，子包以及子包的子包可能会在处于比较深的目录中。这种情况下，即使只是从子包的子包中导入很简单的一项，也可能需要在遍历目录树的过程中执行所有的 :file:`__init__.py` 文件。
 
-Leaving an :file:`__init__.py` file empty is considered normal and even a good
-practice, if the package's modules and sub-packages do not need to share any
-code.
+如果包中的模块和子包不需要共享代码时，通常会把 :file:`__init__.py` 留空，这也是一种比较提倡的行为。
 
-Lastly, a convenient syntax is available for importing deeply nested packages:
-``import very.deep.module as mod``. This allows you to use `mod` in place of the
-verbose repetition of ``very.deep.module``.
+最后，对于深层次嵌套的包，有一种比较方便的语法 ``import very.deep.module as mod`` 。这可以让你使用 `mod` 来代替显示的指明 ``very.deep.module`` 。
 
-Object-oriented programming
----------------------------
+面向对象编程
+-------------
 
-Python is sometimes described as an object-oriented programming language. This
-can be somewhat misleading and needs to be clarified.
+Pyhton有时候会被描述为是一种面向对象的语言。这可能稍微有点误导，这里需要澄清一下。
 
-In Python, everything is an object, and can be handled as such. This is what is
-meant when we say, for example, that functions are first-class objects.
-Functions, classes, strings, and even types are objects in Python: like any
-object, they have a type, they can be passed as function arguments, and they
-may have methods and properties. In this understanding, Python is an
-object-oriented language.
+在Python中，任何东西都是一个对象，当然也就可以按照对象的方式来处理。比如，这意味着我们可以把函数当作第一类的对象来使用。Python中的函数、类、字符串，甚至是类型都是对象：就像任何其他对象一样，它们有类型，可以作为函数的参数传递，并且可以有自己的方法和属性。从这个意义上理解，Python确实是一种面向对象的语言。
 
-However, unlike Java, Python does not impose object-oriented programming as the
-main programming paradigm. It is perfectly viable for a Python project to not
-be object-oriented, i.e. to use no or very few class definitions, class
-inheritance, or any other mechanisms that are specific to object-oriented
-programming.
+然而，不像Java，Python并不强制必须使用面向对象来作为主要的编程范式。对于一些项目来说，不使用面向对象的方式完全可行，比如，可以不使用或者仅仅使用很少的类定义、类继承或者其他面向对象编程特有的机制。
 
-Moreover, as seen in the modules_ section, the way Python handles modules and
-namespaces gives the developer a natural way to ensure the
-encapsulation and separation of abstraction layers, both being the most common
-reasons to use object-orientation. Therefore, Python programmers have more
-latitude to not use object-orientation, when it is not required by the business
-model.
+此外，正如在 模块_ 一节中了解的那样，Python处理模块和命名空间的方式让开发人员可以很自然的确保封装性和抽象层次的分离，而这两者恰恰正是使用面向对象最常见的原因。因此，如果项目的业务模型不是必须使用面向对象来进行开发的话，Python程序员可以自由的选择不使用。
 
-There are some reasons to avoid unnecessary object-orientation. Defining
-custom classes is useful when we want to glue together some state and some
-functionality. The problem, as pointed out by the discussions about functional
-programming, comes from the "state" part of the equation.
+总会有一些理由避免不必要的面向对象。当我们想要把一些状态和功能粘合在一起的时候，自定义一个类是比较有用的方式。但是，正如在函数式编程讨论中指出的一样，问题恰好出在方程式中“状态”的部分。
 
-In some architectures, typically web applications, multiple instances of Python
-processes are spawned to respond to external requests that can happen at the
-same time. In this case, holding some state into instantiated objects, which
-means keeping some static information about the world, is prone to concurrency
-problems or race-conditions. Sometimes, between the initialization of the state
-of an object (usually done with the ``__init__()`` method) and the actual use
-of the object state through one of its methods, the world may have changed, and
-the retained state may be outdated. For example, a request may load an item in
-memory and mark it as read by a user. If another request requires the deletion
-of this item at the same time, it may happen that the deletion actually occurs
-after the first process loaded the item, and then we have to mark as read a
-deleted object.
+在一些架构中，典型的例如Web应用，通常需要派生多个Python进程来同时相应外部的请求。这种情形下，在实例化的对象中保存某种状态（通俗点讲就是保存了所在上下文环境的一些静态信息）很容易引起并发问题或者竞争状态。有时候，从一个对象的状态初始化（通常是通过 ``__init__()`` 方法来完成）到通过其方法实际使用这个状态之间，上下文环境很可能已经发生变化，保留的状态也可能已经过期。例如，一个请求可能会载入某个条目到内存中，并且标记它已经被用户阅读过。与此同时，如果另一个请求需要删除这个条目，就会导致第一个请求载入的条目被这个请求删除掉，其结果就是我们标记阅读过一条不存在（已删除）的条目，这显然是不合理的。
 
-This and other issues led to the idea that using stateless functions is a
-better programming paradigm.
+由于这个以及其他一些问题，引发了使用无状态函数这种更好的编程范式的想法。
 
-Another way to say the same thing is to suggest using functions and procedures
-with as few implicit contexts and side-effects as possible. A function's
-implicit context is made up of any of the global variables or items in the
-persistence layer that are accessed from within the function. Side-effects are
-the changes that a function makes to its implicit context. If a function saves
-or deletes data in a global variable or in the persistence layer, it is said to
-have a side-effect.
+换种说法就是，建议在使用函数中，尽可能的少涉及隐式上下文和可能的副作用。函数的隐式上下文主要是指全局变量以及从函数内部访问的持久层对象。副作用就是指函数对隐式上下文做出了改变。如果函数保存或者删除了全局/持久层的数据，我们就说产生了副作用。
 
-Carefully isolating functions with context and side-effects from functions with
-logic (called pure functions) allow the following benefits:
+小心翼翼地把包含上下文和副作用的函数与包含逻辑处理的函数（纯函数）隔离可以得到如下好处：
 
-- Pure functions are deterministic: given a fixed input,
-  the output will always be the same.
+- 纯函数是确定性的：如果输入是固定的，那么输出也一定是相同的。
 
-- Pure functions are much easier to change or replace if they need to
-  be refactored or optimized.
+- 如果需要重构或者优化时，纯函数更容易改变和替换。
 
-- Pure functions are easier to test with unit-tests: There is less
-  need for complex context setup and data cleaning afterwards.
+- 纯函数更容易单元测试：很少需要设置复杂的上下文和清理事后的数据。
 
-- Pure functions are easier to manipulate, decorate, and pass around.
+- 纯函数更容易操作、修饰以及传递。
 
-In summary, pure functions are more efficient building blocks than classes
-and objects for some architectures because they have no context or side-effects.
+总之，在一些架构中，纯函数在构建封闭块的时候比类和对象更有高效，因为没有上下文和副作用。
 
-Obviously, object-orientation is useful and even necessary in many cases, for
-example when developing graphical desktop applications or games, where the
-things that are manipulated (windows, buttons, avatars, vehicles) have a
-relatively long life of their own in the computer's memory.
+当然了，面向对象还是很有用的，甚至在很多情况下是必须的，比如开发图形桌面应用或者游戏，这种情况下，所操作的实体（窗口、按钮、头像、车辆等）本身在计算机内存中就会有很长的生命周期。
 
 
-Decorators
+装饰器
 ----------
 
-The Python language provides a simple yet powerful syntax called 'decorators'.
-A decorator is a function or a class that wraps (or decorates) a function
-or a method. The 'decorated' function or method will replace the original
-'undecorated' function or method. Because functions are first-class objects
-in Python, this can be done 'manually', but using the @decorator syntax is
-clearer and thus preferred.
+Python语言提供了一个简单但是强大的语法，叫做“装饰器”。装饰器本身是一个函数或者类，可以用来包装（或者装饰）其他函数或方法。“被装饰”的函数或方法会替代原来“未装饰”的函数或方法。由于Python中函数是第一类对象，所以可以通过手动来实现函数的包装，但是使用@decorator语法的方式会显得更加清晰，因此也更加推荐这种用法。
 
 .. code-block:: python
 
@@ -587,45 +386,31 @@ clearer and thus preferred.
         # do something
 
     def decorator(func):
-        # manipulate func
+        # 操作函数
         return func
 
-    foo = decorator(foo)  # Manually decorate
+    foo = decorator(foo)  # 手工装饰
 
     @decorator
     def bar():
         # Do something
-    # bar() is decorated
+    # bar()已被装饰
 
-This mechanism is useful for separating concerns and avoiding
-external un-related logic 'polluting' the core logic of the function
-or method. A good example of a piece of functionality that is better handled
-with decoration is memoization or caching: you want to store the results of an
-expensive function in a table and use them directly instead of recomputing
-them when they have already been computed. This is clearly not part
-of the function logic.
+装饰器机制对于分离业务非常有用，可以避免外部不相关的逻辑“污染”函数或方法中的核心逻辑。其中一个很好的例子是记忆表或者缓存：对于一些运行代价较高的函数，你想把计算结果存在一个表里，以便后面需要的时候可以直接使用而不必重新计算，示例中的这一类功能可以很好的用装饰器来处理。很明显，这部分不能算是函数核心逻辑的一部分。
 
-Context Managers
+上下文管理器
 ----------------
 
-A context manager is a Python object that provides extra contextual information
-to an action. This extra information takes the form of running a callable upon
-initiating the context using the ``with`` statement, as well as running a callable
-upon completing all the code inside the ``with`` block. The most well known
-example of using a context manager is shown here, opening on a file:
+上下文管理器是为一个操作提供额外上下文信息的对象。这个额外的信息采用如下形式来提供：在使用 ``with`` 语句初始化上下文的时候运行一个可调用对象（译者注：函数或者实现 ``__call__`` 的对象等），同时在执行完 ``with`` 块内部的所有代码后，再执行一个可调用对象。使用上下文管理器最为人熟知的例子就是打开一个文件，如下：
 
 .. code-block:: python
 
     with open('file.txt') as f:
         contents = f.read()
 
-Anyone familiar with this pattern knows that invoking ``open`` in this fashion
-ensures that ``f``'s ``close`` method will be called at some point. This reduces
-a developer's cognitive load and makes the code easier to read.
+任何熟悉这种模式的人都知道，以这种方式调用 ``open`` 可以确保 ``f`` 的 ``close`` 方法在后面某个时间点会被自动调用。这可以减轻开发人员的记忆负担，同时也可以使得代码更容易阅读。
 
-There are two easy ways to implement this functionality yourself: using a class
-or using a generator. Let's implement the above functionality ourselves, starting
-with the class approach:
+你自己可以采用两种方式来实现这种功能：使用类或者使用生成器。接下来让我们实现上面提及的功能，首先采用类的方式实现：
 
 .. code-block:: python
 
@@ -642,14 +427,9 @@ with the class approach:
     with CustomOpen('file') as f:
         contents = f.read()
 
-This is just a regular Python object with two extra methods that are used
-by the ``with`` statement. CustomOpen is first instantiated and then its
-``__enter__`` method is called and whatever ``__enter__`` returns is assigned to
-``f`` in the ``as f`` part of the statement. When the contents of the ``with`` block
-is finished executing, the ``__exit__`` method is then called.
+这和普通Python对象没有什么区别，仅仅是多了两个额外的方法，这两个方法会被 ``with`` 语句使用。CustomOpen首先被实例化，然后它的 ``__enter__`` 方法会被调用，``__enter__`` 返回的值会通过语句中的 ``as f`` 被赋值到 ``f``。当 ``with`` 代码块中的内容被执行完毕时， ``__exit__`` 方法会被调用执行。
 
-And now the generator approach using Python's own
-`contextlib <https://docs.python.org/2/library/contextlib.html>`_:
+生成器实现的方式使用了Python内置的 `contextlib <https://docs.python.org/2/library/contextlib.html>`_：
 
 .. code-block:: python
 
@@ -666,39 +446,23 @@ And now the generator approach using Python's own
     with custom_open('file') as f:
         contents = f.read()
 
-This works in exactly the same way as the class example above, albeit it's
-more terse. The ``custom_open`` function executes until it reaches the ``yield``
-statement. It then gives control back to the ``with`` statement, which assigns
-whatever was ``yield``'ed to `f` in the ``as f`` portion. The ``finally`` clause
-ensures that ``close()`` is called whether or not there was an exception inside
-the ``with``.
+这种方式与上述类实现的结果完全一样，尽管简短了很多。首先 ``custom_open`` 逐句执行，直到到达 ``yield`` 语句处，然后把控制权交回给 ``with`` 语句， 然后会把 ``yield`` 产生的结果通过 ``as f`` 赋值到 `f` 上。``finally`` 语句确保无论是否在 ``with`` 语句中产生异常，``close`` 都能被调用。  
 
-Since the two approaches appear the same, we should follow the Zen of Python
-to decide when to use which. The class approach might be better if there's
-a considerable amount of logic to encapsulate. The function approach
-might be better for situations where we're dealing with a simple action.
+由于这两种方式看起来没什么区别，所以我们应该遵循Python之禅来决定什么时候使用哪种方式。如果有大量的逻辑需要封装，那么类方式的实现可能更好。如果我们仅仅是执行一个简单的动作，那么函数的方式或许更好。
 
-Dynamic typing
+
+动态类型
 --------------
 
-Python is dynamically typed, which means that variables do not have a fixed
-type. In fact, in Python, variables are very different from what they are in
-many other languages, specifically statically-typed languages. Variables are not
-a segment of the computer's memory where some value is written, they are 'tags'
-or 'names' pointing to objects. It is therefore possible for the variable 'a' to
-be set to the value 1, then to the value 'a string', then to a function.
+Python是动态类型的，意味着变量没有固定的类型。事实上，Python中的变量与其他语言中的变量有着很大的不同，尤其是静态类型的语言。变量并不是写有某个值的计算机内存段，它们仅仅是指向对象的“标签”或者“名字”。因此，把一个变量设置为1，然后设置为“一个字符串”，再设置为一个函数是完全可以的。
 
-The dynamic typing of Python is often considered to be a weakness, and indeed
-it can lead to complexities and hard-to-debug code. Something named 'a' can be
-set to many different things, and the developer or the maintainer needs to track
-this name in the code to make sure it has not been set to a completely unrelated
-object.
+Python的动态类型经常被认为是一个缺点，并且事实上的确会导致复杂性以及难以调试的代码。命名为“a”的变量可以被设置为很多不同的值，开发者或者维护人员需要在代码中跟踪这个名字，以便确保它不会被设置为一个完全不相关的对象。
 
-Some guidelines help to avoid this issue:
+一些准则有助于避免这类问题：
 
-- Avoid using the same variable name for different things.
+- 避免为不同的事物使用相同的变量名
 
-**Bad**
+**糟糕的代码**
 
 .. code-block:: python
 
@@ -707,7 +471,7 @@ Some guidelines help to avoid this issue:
     def a():
         pass  # Do something
 
-**Good**
+**好的代码**
 
 .. code-block:: python
 
@@ -716,144 +480,111 @@ Some guidelines help to avoid this issue:
     def func():
         pass  # Do something
 
-Using short functions or methods helps reduce the risk
-of using the same name for two unrelated things.
+使用短小的函数或方法，有助于降低为无关事物使用相同命名的风险，毕竟作用域范围内代码量少了。
 
-It is better to use different names even for things that are related,
-when they have a different type:
+如果相关的事物有着不同的类型，最好分别使用不同的名字。
 
-**Bad**
+**糟糕的代码**
 
 .. code-block:: python
 
-    items = 'a b c d'  # This is a string...
-    items = items.split(' ')  # ...becoming a list
-    items = set(items)  # ...and then a set
+    items = 'a b c d'  # 这是一个字符串...
+    items = items.split(' ')  # ...变身为列表
+    items = set(items)  # ...又变为了集合
 
-There is no efficiency gain when reusing names: the assignments
-will have to create new objects anyway. However, when the complexity
-grows and each assignment is separated by other lines of code, including
-'if' branches and loops, it becomes harder to ascertain what a given
-variable's type is.
+重用名字并不能带来效率的提升：无论如何，赋值都会创建新的对象。然而，随着复杂性的增加，各个赋值语句会被很多行的代码分割开来，包括“if”分支和循环，这会使得要查明某个变量是什么类型变得更加困难。
 
-Some coding practices, like functional programming, recommend never reassigning
-a variable. In Java this is done with the `final` keyword. Python does not have
-a `final` keyword and it would be against its philosophy anyway. However, it may
-be a good discipline to avoid assigning to a variable more than once, and it
-helps in grasping the concept of mutable and immutable types.
+在一些例如函数式编程的编码实践中，建议绝不要给一个变量重新赋值。在Java中，可以通过 `final` 关键字来做到禁止重新赋值。Python并没有 `final` 关键字，因为这会与它的哲学相违背。然而，避免给一个变量赋值超过一次是一个良好的习惯，同时，这也会有助于理解可变类型和不可变类型的概念。
 
-Mutable and immutable types
+
+可变与不可变类型
 ---------------------------
 
-Python has two kinds of built-in or user-defined types.
+Python有两种内置类型或用户自定义类型。
 
-Mutable types are those that allow in-place modification of the content. Typical
-mutables are lists and dictionaries: All lists have mutating methods, like
-:py:meth:`list.append` or :py:meth:`list.pop`, and can be modified in place.
-The same goes for dictionaries.
+可变类型就是那些允许在内容上直接修改的类型。典型的可变类型就是列表和字典：所有列表都有用于修改内容的方法，比如 :py:meth:`list.append` 或者 :py:meth:`list.pop`，可以直接在列表上进行修改。字典也是一样的。
 
-Immutable types provide no method for changing their content. For instance, the
-variable x set to the integer 6 has no "increment" method. If you want to
-compute x + 1, you have to create another integer and give it a name.
+不可变类型并不会提供修改自身内容的方法。比如，设置为整数6的变量x就没有"increment"方法。如果你想计算x+1，你不得不创建另外一个整数并命名。
 
 .. code-block:: python
 
     my_list = [1, 2, 3]
     my_list[0] = 4
-    print my_list  # [4, 2, 3] <- The same list as changed
+    print my_list  # [4, 2, 3] <- 列表本身已经改变
 
     x = 6
-    x = x + 1  # The new x is another object
+    x = x + 1  # 等号左边的x已经是另外一个对象，通过id(x)可以知道
 
-One consequence of this difference in behavior is that mutable
-types are not "stable", and therefore cannot be used as dictionary
-keys.
+两种类型在行为上的不同导致的结果就是，可变类型是不“固定的”，因此不能用作字典的键。
 
-Using properly mutable types for things that are mutable in nature
-and immutable types for things that are fixed in nature
-helps to clarify the intent of the code.
+对于那些本质上会改变的事物应当使用合适的可变类型，对于那些本质上是固定的事物应当使用合适的不可变类型，这会使得代码的目的更加明确。
 
-For example, the immutable equivalent of a list is the tuple, created
-with ``(1, 2)``. This tuple is a pair that cannot be changed in-place,
-and can be used as a key for a dictionary.
+比如，与列表等价的不可变类型是元组，可以通过 ``(1,2)`` 来创建。这个元组包含一对不可以直接修改的值，因此可以用作字典的键。
 
-One peculiarity of Python that can surprise beginners is that
-strings are immutable. This means that when constructing a string from
-its parts, it is much more efficient to accumulate the parts in a list,
-which is mutable, and then glue ('join') the parts together when the
-full string is needed. One thing to notice, however, is that list
-comprehensions are better and faster than constructing a list in a loop
-with calls to ``append()``.
+Pyhton中的字符串是不可变类型，这可能会让初学者感到吃惊。这意味着，当要从一个字符串的各个组成部分构建字符串时，先把各个部分放到列表（可变类型）里，然后再用‘join’方法粘合起来的方式会更加高效。然而，有一点需要注意的是，列表解析的方式比通过循环调用 ``append()`` 来构建列表更好也更快。
 
-**Bad**
+**糟糕的代码**
 
 .. code-block:: python
 
-    # create a concatenated string from 0 to 19 (e.g. "012..1819")
+    # 构建一个从0到19连接起来的字符串(比如: "012..1819")
     nums = ""
     for n in range(20):
-      nums += str(n)   # slow and inefficient
+      nums += str(n)   # 低效且慢
     print nums
 
-**Good**
+**较好的代码**
 
 .. code-block:: python
 
-    # create a concatenated string from 0 to 19 (e.g. "012..1819")
+    # 构建一个从0到19连接起来的字符串(比如: "012..1819")
     nums = []
     for n in range(20):
       nums.append(str(n))
-    print "".join(nums)  # much more efficient
+    print "".join(nums)  # 更加高效
 
-**Best**
+**优雅的代码**
 
 .. code-block:: python
 
-    # create a concatenated string from 0 to 19 (e.g. "012..1819")
+    # 构建一个从0到19连接起来的字符串(比如: "012..1819")
     nums = [str(n) for n in range(20)]
     print "".join(nums)
 
-One final thing to mention about strings is that using ``join()`` is not always
-best. In the instances where you are creating a new string from a pre-determined
-number of strings, using the addition operator is actually faster, but in cases
-like above or in cases where you are adding to an existing string, using
-``join()`` should be your preferred method.
+关于字符串最后需要提到的一点：使用 ``join`` 并不总是最好的选择。当需要从一定预设数量的字符串构建一个新的字符串时，使用加号操作符实际上更快，但是当类似之前提到的情况或者需要把字符串添加到一个已经存在的字符串上时，使用 ``join()`` 应该作为你的首选方式。
 
 .. code-block:: python
 
     foo = 'foo'
     bar = 'bar'
 
-    foobar = foo + bar  # This is good
-    foo += 'ooo'  # This is bad, instead you should do:
+    foobar = foo + bar  # 这种方式挺好
+    foo += 'ooo'  # 这种方式可就不好了，你应当采用如下方式：
     foo = ''.join([foo, 'ooo'])
 
 .. note::
-    You can also use the :ref:`% <python:string-formatting>` formatting operator
-    to concatenate a pre-determined number of strings besides :py:meth:`str.join`
-    and ``+``. However, :pep:`3101`, discourages the usage of the ``%`` operator
-    in favor of the :py:meth:`str.format` method.
+    除了 :py:meth:`str.join` 和 ``+`` 的方式之外，你也可以通过使用 :ref:`% <python:string-formatting>` 格式化操作符来连接预设数量的字符串。然而， :pep:`3101`，不鼓励使用 ``%`` 操作符，而是更提倡使用 :py:meth:`str.format` 方法。
 
 .. code-block:: python
 
     foo = 'foo'
     bar = 'bar'
 
-    foobar = '%s%s' % (foo, bar) # It is OK
-    foobar = '{0}{1}'.format(foo, bar) # It is better
-    foobar = '{foo}{bar}'.format(foo=foo, bar=bar) # It is best
+    foobar = '%s%s' % (foo, bar) # 马马虎虎了
+    foobar = '{0}{1}'.format(foo, bar) # 这样比较好
+    foobar = '{foo}{bar}'.format(foo=foo, bar=bar) # 再好不过了
 
 
-Vendorizing Dependencies
+第三方依赖
 ------------------------
 
 
-Runners
--------
+运行部件
+---------
 
 
-Further Reading
----------------
+进一步阅读
+------------
 
 - http://docs.python.org/2/library/
 - http://www.diveintopython.net/toc/index.html
