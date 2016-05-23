@@ -3,32 +3,23 @@
 代码风格
 =========
 
-If you ask Python programmers what they like most in Python, they will
-often say its high readability.  Indeed, a high level of readability
-is at the heart of the design of the Python language, following the
-recognized fact that code is read much more often than it is written.
+如果询问一个Python开发者他最喜欢Python的哪一点，他们通常会说是其可读性。确实，高可读性是Python语言设计的核心准则之一，主要是基于这样一个事实：阅读代码要远多于编写代码。
 
-One reason for Python code to be easily read and understood is its relatively
-complete set of Code Style guidelines and "Pythonic" idioms.
+Python代码之所以容易阅读和理解，原因之一就是它相对完整的编码风格指南以及“Pythonic”的惯用方式。
 
-Moreover, when a veteran Python developer (a Pythonista) points to portions of
-code and says they are not "Pythonic", it usually means that these lines
-of code do not follow the common guidelines and fail to express the intent in
-what is considered the best (hear: most readable) way.
+此外，当一个富有经验的Python开发者（一个Pythonista）指出一部分代码不够“Pythonic”的时，通常意味着这部分代码没有遵循通用的风格指南，并且没有按照最佳方式（即：最具有可读性）来进行缩进处理。
 
-On some border cases, no best way has been agreed upon on how to express
-an intent in Python code, but these cases are rare.
+一些边际情况并没有统一的最佳实践方式来进行Python代码缩进，但是这种情况还是比较罕见的。
 
-General concepts
-----------------
+常规概念
+---------
 
-Explicit code
+显式的代码
 ~~~~~~~~~~~~~
 
-While any kind of black magic is possible with Python, the
-most explicit and straightforward manner is preferred.
+尽管在Python中可以使用任何的黑魔法，但是更提倡显式直白的方式。
 
-**Bad**
+**坏的代码风格**
 
 .. code-block:: python
 
@@ -36,26 +27,22 @@ most explicit and straightforward manner is preferred.
         x, y = args
         return dict(**locals())
 
-**Good**
+
+**好的代码风格**
 
 .. code-block:: python
 
     def make_complex(x, y):
         return {'x': x, 'y': y}
 
-In the good code above, x and y are explicitly received from
-the caller, and an explicit dictionary is returned. The developer
-using this function knows exactly what to do by reading the
-first and last lines, which is not the case with the bad example.
+在上述好风格的代码中，x和y可以从调用者那里显式的获取，然后返回一个显式的字典。使用这个函数的开发人员可以通过阅读代码的首行和尾行清楚的知道它是干什么的，而坏风格的代码则无法做到这点。
 
-One statement per line
-~~~~~~~~~~~~~~~~~~~~~~
+一行一语句
+~~~~~~~~~~~
 
-While some compound statements such as list comprehensions are
-allowed and appreciated for their brevity and their expressiveness,
-it is bad practice to have two disjoint statements on the same line of code.
+列表解析这种组合语句是被允许和鼓励的，这主要是由于其简洁和富有表现力，尽管如此，把两个不太关联的语句放在同一行却不是一种好的实践方式。
 
-**Bad**
+**坏的代码风格**
 
 .. code-block:: python
 
@@ -66,7 +53,8 @@ it is bad practice to have two disjoint statements on the same line of code.
     if <complex comparison> and <other complex comparison>:
         # do something
 
-**Good**
+
+**好的代码风格**
 
 .. code-block:: python
 
@@ -81,182 +69,92 @@ it is bad practice to have two disjoint statements on the same line of code.
     if cond1 and cond2:
         # do something
 
-Function arguments
-~~~~~~~~~~~~~~~~~~
 
-Arguments can be passed to functions in four different ways.
+函数的参数
+~~~~~~~~~~~~
 
-1. **Positional arguments** are mandatory and have no default values. They are
-   the simplest form of arguments and they can be used for the few function
-   arguments that are fully part of the function's meaning and their order is
-   natural. For instance, in ``send(message, recipient)`` or ``point(x, y)``
-   the user of the function has no difficulty remembering that those two
-   functions require two arguments, and in which order.
+参数可以通过四种方式来传递给函数。
 
-In those two cases, it is possible to use argument names when calling the
-functions and, doing so, it is possible to switch the order of arguments,
-calling for instance ``send(recipient='World', message='Hello')`` and
-``point(y=2, x=1)`` but this reduces readability and is unnecessarily verbose,
-compared to the more straightforward calls to ``send('Hello', 'World')`` and
-``point(1, 2)``.
 
-2. **Keyword arguments** are not mandatory and have default values. They are
-   often used for optional parameters sent to the function. When a function has
-   more than two or three positional parameters, its signature is more difficult
-   to remember and using keyword arguments with default values is helpful. For
-   instance, a more complete ``send`` function could be defined as
-   ``send(message, to, cc=None, bcc=None)``. Here ``cc`` and ``bcc`` are
-   optional, and evaluate to ``None`` when they are not passed another value.
+1. **位置参数** 是强制的且没有默认值。这是最简单的参数形式，这种方式可以被用在很少参数即可表达完整意义的函数中，并且这些参数顺序是很自然的。举个例子，在函数 ``send(message, recipient)`` 或者 ``point(x,y)`` 中，函数的使用者可以毫不费力的记住这两个函数需要两个参数，以及参数的顺序是什么。
 
-Calling a function with keyword arguments can be done in multiple ways in
-Python, for example it is possible to follow the order of arguments in the
-definition without explicitly naming the arguments, like in
-``send('Hello', 'World', 'Cthulhu', 'God')``, sending a blind carbon copy to
-God. It would also be possible to name arguments in another order, like in
-``send('Hello again', 'World', bcc='God', cc='Cthulhu')``. Those two
-possibilities are better avoided without any strong reason to not follow the
-syntax that is the closest to the function definition:
-``send('Hello', 'World', cc='Cthulhu', bcc='God')``.
+  在这两个示例中，可以通过使用参数名来调用函数，如果采用这种方式，参数的顺序是可以交换的，调用方式为 ``send(recipient='World', message='Hello')`` 以及 ``point(y=2, x=1)`` ，但是与直接调用 ``send（'Hello', 'World')`` 和 ``point(1, 2)`` 相比，这会降低可读性，同时也造成了不必要的冗长。
 
-As a side note, following `YAGNI <http://en.wikipedia.org/wiki/You_ain't_gonna_need_it>`_
-principle, it is often harder to remove an optional argument (and its logic
-inside the function) that was added "just in case" and is seemingly never used,
-than to add a new optional argument and its logic when needed.
+2. **关键字参数** 不是强制的且可以有默认值。它们通常被用于发送给函数的可选参数。当函数有多于两个或三个位置参数时，函数签名会变得相对难记，这时，使用带有默认值的关键字参数会有帮助的多。例如，更加完整的 ``send`` 函数可能被定义为 ``send(message, to, cc=None, bcc=None)`` 。这里的 ``cc`` 和 ``bcc`` 是可选的，并且，在没有被传递其他值时，会被赋值为None。
 
-3. The **arbitrary argument list** is the third way to pass arguments to a
-function.  If the function intention is better expressed by a signature with an
-extensible number of positional arguments, it can be defined with the ``*args``
-constructs.  In the function body, ``args`` will be a tuple of all the
-remaining positional arguments. For example, ``send(message, *args)`` can be
-called with each recipient as an argument: ``send('Hello', 'God', 'Mom',
-'Cthulhu')``, and in the function body ``args`` will be equal to ``('God',
-'Mom', 'Cthulhu')``.
+  在Python中，调用带有关键字参数的函数有多种方式，比如，可以按照函数定义时参数的顺序来调用，这时不需要显式的命名参数，就像 ``send('Hello', 'World', 'Cthulhu', 'God')`` 中一样，发送秘密抄送给上帝。同样，也可以用命名参数的方式来按其他顺序调用，就像 ``send('Hello again', 'World', bcc='God', cc='Cthulhu')`` 。除非有很重要的原因，否则上述两种方式最好避免使用，而应该按照最接近函数定义的语法方式来调用: ``send('Hello', 'World', cc='Cthulhu', bcc='God')`` 。
 
-However, this construct has some drawbacks and should be used with caution. If a
-function receives a list of arguments of the same nature, it is often more
-clear to define it as a function of one argument, that argument being a list or
-any sequence. Here, if ``send`` has multiple recipients, it is better to define
-it explicitly: ``send(message, recipients)`` and call it with ``send('Hello',
-['God', 'Mom', 'Cthulhu'])``. This way, the user of the function can manipulate
-the recipient list as a list beforehand, and it opens the possibility to pass
-any sequence, including iterators, that cannot be unpacked as other sequences.
+  作为附注，参见 `YAGNI <http://en.wikipedia.org/wiki/You_ain't_gonna_need_it>`_ 准则，通常来说，移除那些似乎永远用不到但为了“以防万一”而添加的可选参数（以及它在函数内的逻辑部分），要比需要时再添加新的可选参数以及其逻辑要困难的多。（译者注：也就是说，如无必要，不必预留不太可能用到的可选参数）
 
-4. The **arbitrary keyword argument dictionary** is the last way to pass
-   arguments to functions. If the function requires an undetermined series of
-   named arguments, it is possible to use the ``**kwargs`` construct. In the
-   function body, ``kwargs`` will be a dictionary of all the passed named
-   arguments that have not been caught by other keyword arguments in the
-   function signature.
+3. **任意参数列表** 是传递给函数参数的第三种方式。如果函数的意图可以通过一个包含有数目可扩展的位置参数的函数签名表达出来，那么，可以定义一个使用了 ``*args`` 参数的函数。在函数体内， ``args`` 会是一个剩余位置参数组成的元组。例如， 可以使用每个接收者作为参数来调用 ``send(message, *args)`` ： ``send('Hello', 'God', 'Mom', 'Cthulhu')`` ，在函数体内 ``args`` 等同于 ``('God', 'Mom', 'Cthulhu')`` 。
 
-The same caution as in the case of *arbitrary argument list* is necessary, for
-similar reasons: these powerful techniques are to be used when there is a
-proven necessity to use them, and they should not be used if the simpler and
-clearer construct is sufficient to express the function's intention.
+  然而，这种构造有一些缺点，使用时应当谨慎。如果一个函数接收一组具有相同属性的参数，那么把函数定义成接收列表形式或者任意序列形式参数的方式会更加清晰。此例而言，如果 ``send`` 有多个接收者，最好显式的把它定义为： ``send(message, recipients)`` ，并且以 ``send('Hello', ['God', 'Mom', 'Cthulhu'])`` 方式调用。这样，函数使用者可以以预先定义好的列表形式来操作一组接收者，同时也打开了传递任何序列的可能性，包括无法解包为其他序列的迭代器。
 
-It is up to the programmer writing the function to determine which arguments
-are positional arguments and which are optional keyword arguments, and to
-decide whether to use the advanced techniques of arbitrary argument passing. If
-the advice above is followed wisely, it is possible and enjoyable to write
-Python functions that are:
+4. **关键字参数字典** 是最后一种函数传递参数的方式。如果函数需要一系列未确定的命名参数，可以使用 ``**kwargs`` 构造。在函数体内， ``kwargs`` 是一个由所有尚未被函数签名中关键字参数捕获的其他命名参数的字典。
 
-* easy to read (the name and arguments need no explanations)
+  与 *任意数目参数列表* 中一样，也必须谨慎使用这种方式，原因也是相似的：这种强力的技术应该在必要的时候才使用，如果存在更简单更清晰的方式即可满足函数的意图，那么应该避免使用 *关键字参数字典* 这种方式。
 
-* easy to change (adding a new keyword argument does not break other parts of
-  the code)
+哪些参数作为位置参数，哪些参数作为可选的关键字参数，是否使用传递任意数目参数的高级技术，这都是由编写函数的开发者来决定的。如果明智的采用上述建议，完全有可能愉快的写出符合下列条件的函数：
 
-Avoid the magical wand
-~~~~~~~~~~~~~~~~~~~~~~
+* 易于阅读（函数名和参数无需过多解释）
 
-A powerful tool for hackers, Python comes with a very rich set of hooks and
-tools allowing you to do almost any kind of tricky tricks. For instance, it is
-possible to do each of the following:
+* 易于修改（添加新的关键字参数不会破坏代码的其他部分）
 
-* change how objects are created and instantiated
 
-* change how the Python interpreter imports modules
+避免魔法方法
+~~~~~~~~~~~~~
 
-* it is even possible (and recommended if needed) to embed C routines in Python.
+作为黑客的强力的工具，Python自带了非常丰富的钩子和工具，允许你完成几乎任何奇技淫巧的事情。例如，它可以完成以下任何一件事：
 
-However, all these options have many drawbacks and it is always better to use
-the most straightforward way to achieve your goal. The main drawback is that
-readability suffers greatly when using these constructs. Many code analysis
-tools, such as pylint or pyflakes, will be unable to parse this "magic" code.
+* 改变对象的创建和初始化方式
 
-We consider that a Python developer should know about these nearly infinite
-possibilities, because it instills confidence that no impassable problem will
-be on the way. However, knowing how and particularly when **not** to use
-them is very important.
+* 改变Python解释器导入模块的方式
 
-Like a kung fu master, a Pythonista knows how to kill with a single finger, and
-never to actually do it.
+* 在Python中嵌入C代码（如果需要的话，建议这么做）
 
-We are all responsible users
+然而，所有这些选择都有许多缺点，所以使用最为直接的方式来达到你的目的总会更好。最为主要的缺点是使用这些构造方式严重影响了可读性。许多代码分析工具，例如pylint或者pyflakes将无法解析这些“魔幻的”代码。
+
+我们认为Python开发者应该了解这些几乎无限的可能性，因为这会给你灌输自信，让你觉得没有不可逾越的难题。然而，知道怎么使用以及明确何时 **不** 去使用它们却非常重要。
+
+就像功夫大师一样，一个Pythonista知道如何用一根指头杀人，然而却永远不会这么做。
+
+
+我们都是负责的用户
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-As seen above, Python allows many tricks, and some of them are potentially
-dangerous. A good example is that any client code can override an object's
-properties and methods: there is no "private" keyword in Python. This
-philosophy, very different from highly defensive languages like Java, which
-give a lot of mechanisms to prevent any misuse, is expressed by the saying: "We
-are all responsible users".
+如上所见，Python允许很多技巧，但是其中一些具有潜在的危险性。一个比较好的例子是客户端代码可以重写对象的属性和方法：在Python中，没有“private”关键字。这是Python的哲学，与像Java这样具有高度防御性的语言不同，高防御性语言会提供许多机制来阻止任何的误用，而Python会通过表明：我们都是负责的用户来达到这点。
 
-This doesn't mean that, for example, no properties are considered private, and
-that no proper encapsulation is possible in Python. Rather, instead of relying
-on concrete walls erected by the developers between their code and other's, the
-Python community prefers to rely on a set of conventions indicating that these
-elements should not be accessed directly.
+这并不意味着，属性不能被认为是私有的，抑或Python无法进行合适的封装。相反，Python并不依赖于开发者在自身代码和其他人的代码之间竖立坚固的墙来达到隔离，Python社区更倾向于依赖一系列的惯例来表明这些元素不应当被直接访问。
 
-The main convention for private properties and implementation details is to
-prefix all "internals" with an underscore. If the client code breaks this rule
-and accesses these marked elements, any misbehavior or problems encountered if
-the code is modified is the responsibility of the client code.
+对于私有属性，主要的惯例和实现细节是对所有“内部的元素”使用下划线前缀。如果客户端代码破坏这个规则，并且访问这些标记的元素，遇到的任何不正确行为或者问题都应当由客户端代码负责。
 
-Using this convention generously is encouraged: any method or property that is
-not intended to be used by client code should be prefixed with an underscore.
-This will guarantee a better separation of duties and easier modification of
-existing code; it will always be possible to publicize a private property,
-but making a public property private might be a much harder operation.
+我们鼓励慷慨的使用这些惯例：任何不计划被客户端代码使用的方法或者属性应当使用下划线作为前缀。这样可以确保更好的责任分离以及对已有代码更容易的修改；把私有属性公有化总是可行的，反之，把公有属性私有化则困难的多。
 
-Returning values
-~~~~~~~~~~~~~~~~
 
-When a function grows in complexity it is not uncommon to use multiple return
-statements inside the function's body. However, in order to keep a clear intent
-and a sustainable readability level, it is preferable to avoid returning
-meaningful values from many output points in the body.
+返回值
+~~~~~~~~
 
-There are two main cases for returning values in a function: the result of the
-function return when it has been processed normally, and the error cases that
-indicate a wrong input parameter or any other reason for the function to not be
-able to complete its computation or task.
+随着函数复杂性的增长，在函数体内使用多个返回语句变得很常见。然而，为了保持函数意图明确以及维持足以接受的可读性，更倾向于避免从函数体的多个出口点返回有意义的值。
 
-If you do not wish to raise exceptions for the second case, then returning a
-value, such as None or False, indicating that the function could not perform
-correctly might be needed. In this case, it is better to return as early as the
-incorrect context has been detected. It will help to flatten the structure of
-the function: all the code after the return-because-of-error statement can
-assume the condition is met to further compute the function's main result.
-Having multiple such return statements is often necessary.
+在一个函数中返回值主要有两种情况：一种是函数正常处理完毕返回结果，另一种是返回错误情况，以便说明由于错误的输入参数或者其他原因，进而导致函数无法完成计算或任务。
 
-However, when a function has multiple main exit points for its normal course,
-it becomes difficult to debug the returned result, so it may be preferable to
-keep a single exit point. This will also help factoring out some code paths,
-and the multiple exit points are a probable indication that such a refactoring
-is needed.
+如果在第二种情况下你不希望抛出异常，那么应当返回一个None或者False值来表明函数无法正常处理。这种情况下，最好在检测到不正确的上下文时尽早返回。这样有助于函数结构的扁平：返回语句（由于错误而返回）之后的代码可以认为是满足后续计算函数结果的情形。函数中往往会有多个这样的返回语句（由于错误而返回）。
+
+然而，当一个函数在正常路径上有多个主要的退出点时，会导致难以调试返回结果，所以如果可能，应当保留单个退出点。这将有助于提取一些公共的代码路径，并且如果有多个退出点也说明函数很有可能需要重构。
 
 .. code-block:: python
 
    def complex_function(a, b, c):
        if not a:
-           return None  # Raising an exception might be better
+           return None  # 抛出异常可能会更好
        if not b:
-           return None  # Raising an exception might be better
-       # Some complex code trying to compute x from a, b and c
-       # Resist temptation to return x if succeeded
+           return None  # 抛出异常可能会更好
+       # 尝试从a, b和c中计算x的复杂代码
+       # 如果成功，暂时先不返回x
        if not x:
-           # Some Plan-B computation of x
-       return x  # One single exit point for the returned value x will help
-                 # when maintaining the code.
+           # 计算x的其他方式
+       return x  # 返回值x有单一的退出点有助于代码的维护
+
 
 Idioms
 ------
