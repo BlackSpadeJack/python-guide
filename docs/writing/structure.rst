@@ -203,7 +203,12 @@ Makefile
     test:
         py.test tests
 
-其他常见的管理脚本（例如 ``manage.py`` 或者 ``fabfile.py``）也应当在仓库的根目录下。
+
+    .PHONY init test
+
+
+其他常见的管理脚本（例如 ``manage.py`` 或者 ``fabfile.py`` ）也应当在仓库的根目录下。
+
 
 关于Django应用
 :::::::::::::::
