@@ -219,7 +219,7 @@ Makefile
 
 ::
 
-    $ django-admin.py start-project samplesite
+    $ django-admin.py startproject samplesite
 
 其结果就是仓库结构看起来如下：
 
@@ -239,7 +239,7 @@ Makefile
 
 ::
 
-    $ django-admin.py start-project samplesite .
+    $ django-admin.py startproject samplesite .
 
 注意最后的那个 "``.``"。
 
