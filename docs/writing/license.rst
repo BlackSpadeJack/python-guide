@@ -1,36 +1,23 @@
-Choosing a License
+选择许可证
 ==================
 
-Your source publication *needs* a license. In the US, if no license is
-specified, users have no legal right to download, modify, or distribute.
-Furthermore, people can't contribute to your code unless you tell them what
-rules to play by. Choosing a license is complicated, so here are some pointers:
+源码发布 *需要* 一个许可证。在灯塔国，如果没有指明许可证，用户是没有合法权利进行下载、修改或者再分发的。进一步讲，人们也无法向你的代码进行贡献，除非你告诉他们应该遵守什么规则。挑选合适的许可证比较复杂，这里给出一些指点：
 
-Open source. There are plenty of `open source licenses
-<http://opensource.org/licenses/alphabetical>`_ available to choose
-from.
+开源。有大量的 `开源许可证 <http://opensource.org/licenses/alphabetical>`_ 可供选择。
 
-In general, these licenses tend to fall into one of two categories:
+通常，这些许可证属于以下这两类中的一种：
 
-1. licenses that focus more on the user's freedom to do with the
-   software as they please (these are the more permissive open
-   source licenses such as the MIT, BSD, & Apache).
+1. 许可证更多地聚焦于用户按照其意愿使用软件的自由（这类许可证更加宽容，例如MIT、BSD以及Apache）。
 
-2. licenses that focus more on making sure that the code itself —
-   including any changes made to it and distributed along with it —
-   always remains free (these are the less permissive free software
-   licenses such as the GPL and LGPL).
+2. 另一类许可证更多地聚焦于确保代码本身 — 包括对代码任何的修改和分发 — 总是保持自由开放（这类不那么宽容的许可证包括GPL以及LGPL）。
 
-The latter are less permissive in the sense that they don't permit
-someone to add code to the software and distribute it without also
-including the source code for their changes.
+后一种许可证不允许用户在软件上添加代码却在分发时不包含这部分更改的源码（译者注：即作出的更改必须也开源），就这点而言，显得不太宽容。
 
-To help you choose one for your project, there's a `license chooser <http://choosealicense.com/>`_,
-**use it**.
+为了帮助你给自己的项目选择一个合适的许可证，这里有一份 `如何选择许可证 <http://choosealicense.com/>`_ ，**参考下吧** 。
 
-**More Permissive**
+**更加宽容的许可证**
 
-- PSFL (Python Software Foundation License) -- for contributing to Python itself
+- PSFL (Python Software Foundation License) -- 用于Python本身
 - MIT / BSD / ISC
 
   + MIT (X11)
@@ -39,7 +26,7 @@ To help you choose one for your project, there's a `license chooser <http://choo
 
 - Apache
 
-**Less Permissive:**
+**不那么宽容的许可证**
 
 - LGPL
 - GPL
@@ -47,6 +34,4 @@ To help you choose one for your project, there's a `license chooser <http://choo
   + GPLv2
   + GPLv3
 
-A good overview of licenses with explanations of what one can, cannot,
-and must do using a particular software can be found at
-`tl;drLegal <https://tldrlegal.com/>`_.
+`tl;drLegal <https://tldrlegal.com/>`_ 是一份许可证概览，里面解释了用户在使用一个特定软件时能做什么、不能做什么以及必须做什么。
