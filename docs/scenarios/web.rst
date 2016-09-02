@@ -1,116 +1,82 @@
 ================
-Web Applications
+Web应用
 ================
 
-As a powerful scripting language adapted to both fast prototyping
-and bigger projects, Python is widely used in web application
-development.
+作为一种适用于快速原型以及大型项目的强大脚本语言，Python在Web应用开发中被广泛使用。
 
-Context
-:::::::
+
+上下文环境
+:::::::::::
 
 
 WSGI
 ----
 
-The Web Server Gateway Interface (or "WSGI" for short) is a standard
-interface between web servers and Python web application frameworks. By
-standardizing behavior and communication between web servers and Python web
-frameworks, WSGI makes it possible to write portable Python web code that
-can be deployed in any :ref:`WSGI-compliant web server <wsgi-servers-ref>`.
-WSGI is documented in :pep:`3333`.
+Web服务器网关接口（缩写为“WSGI”）是Python web应用框架与web服务器交互的标准接口。通过标准化Python web框架与web服务器之间的行为和交互，WSGI使得编写可部署于任何 :ref:`WSGI兼容服务器 <wsgi-servers-ref>` 上的可移植性Python代码变成了可能。WSGI的相关文档见 :pep:`3333` 。
 
 
-Frameworks
+框架
 ::::::::::
 
-Broadly speaking, a web framework consists of a set of libraries and a main
-handler within which you can build custom code to implement a web application
-(i.e. an interactive web site). Most web frameworks include patterns and
-utilities to accomplish at least the following:
+大体上来说，web框架包含了各种库的集合，以及用于定制代码实现web应用（比如一个交互式的web站点）的主处理器。大部分的web框架包含了各种模式以及工具来实现以下几点：
 
-URL Routing
-  Matches an incoming HTTP request to a particular piece of Python code to
-  be invoked
+URL路由
+  匹配到来的HTTP请求到特定的Python代码来执行相应逻辑
 
-Request and Response Objects
-  Encapsulate the information received from or sent to a user's browser
+请求响应对象
+  对接收自或发送给用户浏览器的信息进行包装
 
-Template Engine
-  Allows for separating Python code implementing an application's logic from
-  the HTML (or other) output that it produces
+模板引擎
+  用于分离实现应用逻辑的Python代码和产生的HTML（或其他形式）输出
 
-Development Web Server
-  Runs an HTTP server on development machines to enable rapid development;
-  often automatically reloads server-side code when files are updated
+开发时使用的web服务器
+  在开发机上运行HTTP服务器可以进行快速开发；当文件更新时，通常会自动重载服务端代码。
 
 
 Django
 ------
 
-`Django <http://www.djangoproject.com>`_ is a "batteries included" web
-application framework, and is an excellent choice for creating content-oriented
-websites. By providing many utilities and patterns out of the box, Django aims
-to make it possible to build complex, database-backed web applications quickly,
-while encouraging best practices in code written using it.
+`Django <http://www.djangoproject.com>`_ 是一个“内置电池”的web应用框架，对于创建面向内容的站点来说是一个极好的选择。通过提供大量开箱即用的工具和模式，Django旨在鼓励以最佳实践方式编写代码的同时，可以快速构建复杂的、数据库驱动的web应用。
 
-Django has a large and active community, and many pre-built `re-usable
-modules <http://djangopackages.com/>`_ that can be incorporated into a new
-project as-is, or customized to fit your needs.
+Django有着一个活跃的大型社区，有许多预先构建好的 `可复用模块 <http://djangopackages.com/>`_ 可以用来构建新的项目，抑或通过定制来达到你的要求。
 
-There are annual Django conferences `in the United States
-<http://djangocon.us>`_ and `in Europe <http://djangocon.eu>`_.
+在 `美国 <http://djangocon.us>`_ 和 `欧洲 <http://djangocon.eu>`_ 每年都有Django的会议。
 
-The majority of new Python web applications today are built with Django.
+当今大多数新的Python web应用都是使用Django来构建的。
+
 
 Flask
 -----
 
-`Flask <http://flask.pocoo.org/>`_ is a "microframework" for Python, and is
-an excellent choice for building smaller applications, APIs, and web services.
+`Flask <http://flask.pocoo.org/>`_ 是Python中的一个 “微框架”，对于构建小型的应用、API或者web服务，这是一个极好的选择。
 
-Building an app with Flask is a lot like writing standard Python modules,
-except some functions have routes attached to them. It's really beautiful.
+使用Flask构建应用在很大程度上就和编写标准Python模块差不多，除了要绑定路由到一些函数之上。这种方式棒极了。
 
-Rather than aiming to provide everything you could possibly need, Flask
-implements the most commonly-used core components of a web application
-framework, like URL routing, request and response objects, and templates.
+Flask并没有向你提供可能会用到的所有功能，而是实现了web应用框架中大部分常用的核心组件，比如URL路由、请求响应对象和模板。
 
-If you use Flask, it is up to you to choose other components for your
-application, if any. For example, database access or form generation and
-validation are not built-in functions of Flask.
+如果采用Flask，你可以根据自己爱好来为你的应用选择其他任何组件。比如，Flask并没有内建数据库访问或者表单的生成与验证。
 
-This is great, because many web applications don't need those features.
-For those that do, there are many
-`Extensions <http://flask.pocoo.org/extensions/>`_ available that may
-suit your needs. Or, you can easily use any library you want yourself!
+这样做其实很好，因为很多web应用并不需要这些特性。对于那些需要这些特性的项目而言，有许多 `扩展 <http://flask.pocoo.org/extensions/>`_ 可以满足你的需求。又或者你可以使用任何你想用的库！
 
-Flask is default choice for any Python web application that isn't a good
-fit for Django.
+对于那些不太适用Django的Python web应用来说，Flask是默认的选择。
 
 
 Tornado
 --------
 
-`Tornado <http://www.tornadoweb.org/>`_ is an asyncronous web framework
-for Python that has its own event loop. This allows it to natively support
-WebSockets, for example. Well-written Tornado applications are known to
-have excellent performance characteristics.
+`Tornado <http://www.tornadoweb.org/>`_ 是Python中的一个异步web框架，有着自己的事件循环，这使得其本身可以支持WebSockets。优秀的tornado应用以性能卓越而著称。
 
-I do not recommend using Tornado unless you think you need it.
+我不太建议使用Tornado，除非你认为非用不可。
 
 Pyramid
 --------
 
-`Pyramid <https://trypyramid.com/>`_ is a very flexible framework with a heavy
-focus on modularity. It comes with a small number of libraries ("batteries")
-built-in, and encourages users to extend its base functionality.
+`Pyramid <https://trypyramid.com/>`_ 是一个聚焦于模块化、极具伸缩性的框架。框架本身内建有少量的库（“电池”），并鼓励用户扩展这些基础功能。
 
-Pyramid does not have a large user base, unlike Django and Flask. It's a
-capable framework, but not a very popular choice for new Python web
-applications today.
+不像Django和Flask，Pyramid用户基础并不大。本身是一个功能很强大的框架，但是对于如今新的Python web应用来说并不是一个流行的选择。
 
-Web Servers
+
+Web服务器
 :::::::::::
 
 .. _nginx-ref:
@@ -118,231 +84,168 @@ Web Servers
 Nginx
 -----
 
-`Nginx <http://nginx.org/>`_ (pronounced "engine-x") is a web server and
-reverse-proxy for HTTP, SMTP and other protocols. It is known for its
-high performance, relative simplicity, and compatibility with many
-application servers (like WSGI servers). It also includes handy features
-like load-balancing, basic authentication, streaming, and others. Designed
-to serve high-load websites, Nginx is gradually becoming quite popular.
+`Nginx <http://nginx.org/>`_ （发音 "engine-x"）是一个web服务器以及HTTP、SMTP和其他协议的反向代理。以高性能、相对简单及和许多应用服务器的（如WSGI服务器）兼容性著称。它包含有大把的特性，比如负载均衡、基本认证、流处理以及其他特性。Nginx设计用以服务于高负载的站点，正在逐渐变得越来越流行。
 
 
 .. _wsgi-servers-ref:
 
-WSGI Servers
+WSGI服务器
 ::::::::::::
 
-Stand-alone WSGI servers typically use less resources than traditional web
-servers and provide top performance [3]_.
+独立的WSGI服务器往往比传统的web服务器使用更少的资源，并且提供更高的性能 [3]_ 。
 
 .. _gunicorn-ref:
 
 Gunicorn
 --------
 
-`Gunicorn <http://gunicorn.org/>`_ (Green Unicorn) is a pure-python WSGI
-server used to serve Python applications. Unlike other Python web servers,
-it has a thoughtful user-interface, and is extremely easy to use and
-configure.
+`Gunicorn <http://gunicorn.org/>`_ （Green Unicorn）是一个用来驱动Python应用的WSGI服务器，纯Python实现。与其他Python web服务器不同，它有着非常体贴的接口，并且非常易用和配置。
 
-Gunicorn has sane and reasonable defaults for configurations. However, some
-other servers, like uWSGI, are tremendously more customizable, and therefore,
-are much more difficult to effectively use.
+Gunicorn有着很明智合理的默认配置。然而，一些其他服务器，例如uWSGI，虽然有着惊人的可定制性，但也因此变得更加难以高效使用。
 
-Gunicorn is the recommended choice for new Python web applications today.
+对于如今新的Python web应用而言，Gunicorn是更加推荐的选择。
 
 
 Waitress
 --------
 
-`Waitress <http://waitress.readthedocs.org>`_ is a pure-python WSGI server
-that claims "very acceptable performance". Its documentation is not very
-detailed, but it does offer some nice functionality that Gunicorn doesn't have
-(e.g. HTTP request buffering).
+`Waitress <http://waitress.readthedocs.org>`_ 也是一个纯Python的WSGI服务器，声称有着“非常可接受的性能”。其文档并不太详细，但是确实提供了一些Gunicorn没有提供的优秀功能（如HTTP请求缓冲）。
 
-Waitress is gaining popularity within the Python web development community.
+Waitress在Python web开发社区正在变得越来越流行。
 
 .. _uwsgi-ref:
 
 uWSGI
 -----
 
-`uWSGI <https://uwsgi-docs.readthedocs.org>`_ is a full stack for building
-hosting services.  In addition to process management, process monitoring,
-and other functionality, uWSGI acts as an application server for various
-programming languages and protocols - including Python and WSGI. uWSGI can
-either be run as a stand-alone web router, or be run behind a full web
-server (such as Nginx or Apache).  In the latter case, a web server can
-configure uWSGI and an application's operation over the
-`uwsgi protocol <https://uwsgi-docs.readthedocs.org/en/latest/Protocol.html>`_.
-uWSGI's web server support allows for dynamically configuring
-Python, passing environment variables and further tuning.  For full details,
-see `uWSGI magic
-variables <https://uwsgi-docs.readthedocs.org/en/latest/Vars.html>`_.
+`uWSGI <https://uwsgi-docs.readthedocs.org>`_ 为构建托管服务提供了全栈的功能。除了进程管理、进程监控以及其他功能，uWSGI还可以作为多种编程语言和协议的应用服务器 - 当然包括Python和WSGI。uWSGI既可以作为独立的web路由器来运行，也可以运行在全功能的web服务器（比如Nginx和Apache）后端。后一种情况下，web服务器可以配置uWSGI与应用之间采用 `uwsgi协议 <https://uwsgi-docs.readthedocs.org/en/latest/Protocol.html>`_ 来通信。uWSGI的web服务器支持通过传递环境变量和进一步的调整来动态配置Python。更详细的信息，参见 `uWSGI魔法变量 <https://uwsgi-docs.readthedocs.org/en/latest/Vars.html>`_ 。
 
-I do not recommend using uWSGI unless you know why you need it.
+我不建议使用uWSGI，除非你知道为什么需要使用。
 
 .. _server-best-practices-ref:
 
 
-Server Best Practices
+服务端最佳实践
 :::::::::::::::::::::
 
-The majority of self-hosted Python applications today are hosted with a WSGI
-server such as :ref:`Gunicorn <gunicorn-ref>`, either directly or behind a
-lightweight web server such as :ref:`nginx <nginx-ref>`.
+当前主流部署Python应用的方式主要是采用如 :ref:`Gunicorn <gunicorn-ref>` 的WSGI服务器，然后直接或间接的放置在轻量级web服务器，如 :ref:`nginx <nginx-ref>` 后面。
 
-The WSGI servers serve the Python applications while the web server handles
-tasks better suited for it such as static file serving, request routing, DDoS
-protection, and basic authentication.
+WSGI服务器主要是用于Python应用的处理，与此同时，web服务器则处理更适合它的任务，比如静态文件服务、请求路由、DDoS保护以及基本认证。
 
-Hosting
-:::::::
 
-Platform-as-a-Service (PaaS) is a type of cloud computing infrastructure
-which abstracts and manages infrastructure, routing, and scaling of web
-applications. When using a PaaS, application developers can focus on writing
-application code rather than needing to be concerned with deployment
-details.
+托管部署
+:::::::::
+
+平台即服务（PaaS）是一种云计算基础设施的类型，会抽象并管理基础设施、路由以及web应用的扩展。使用PaaS时，应用开发者可以聚焦于编写应用代码而不用关心部署的细节。
+
 
 Heroku
 ------
 
-`Heroku <http://www.heroku.com/python>`_ offers first-class support for
-Python 2.7–3.5 applications.
+`Heroku <http://www.heroku.com/python>`_ 对Python 2.7-3.5 应用提供了第一流的支持。
 
-Heroku supports all types of Python web applications, servers, and frameworks.
-Applications can be developed on Heroku for free. Once your application is
-ready for production, you can upgrade to a Hobby or Professional application.
+Heroku支持所有类型的Python web应用、服务器以及框架。可以在Heroku上免费的开发应用。一旦应用可以用于生产，你可以升级到兴趣或专业应用。
 
-Heroku maintains `detailed articles <https://devcenter.heroku.com/categories/python>`_
-on using Python with Heroku, as well as `step-by-step instructions
-<https://devcenter.heroku.com/articles/getting-started-with-python>`_ on
-how to set up your first application.
+Heroku维护了 `详细的文章 <https://devcenter.heroku.com/categories/python>`_ 来说明如何在Heroku上使用Python，同时也有一份 `手把手指南 <https://devcenter.heroku.com/articles/getting-started-with-python>`_ 来帮助设置你的第一个应用。
 
-Heroku is the recommended PaaS for deploying Python web applications today.
+Heroku是当前比较推荐的用于部署Python web应用的PaaS。
+
 
 Gondor
 ------
 
-`Gondor <https://gondor.io/>`_ is a PaaS specialized for deploying Django
-and Pinax applications. Gondor recommends Django version 1.6 and supports any
-WSGI application on Python version 2.7. Gondor can automatically configure your
-Django site if you use :file:`local_settings.py` for site-specific configuration
-information.
+`Gondor <https://gondor.io/>`_ 是一个专用于Django和Pinax应用的PaaS。Gondor建议的Django版本是1.6，并且支持Python 2.7上的WSGI应用。如果使用 :file:`local_settings.py` 来存储站点特有配置信息，Gondor可以自动的配置你的Django站点。
 
-Gondor has a guide on deploying `Django projects <https://gondor.io/support/django/setup/>`_.
+Gondor有一份指南说明如何部署 `Django项目 <https://gondor.io/support/django/setup/>`_ 。
 
-Gondor is run by a small company and focuses on helping businesses find success with
-Python and Django.
+Gondor是由一家小型公司运营的，聚焦于帮助企业成功部署Python和Django。
 
-Templating
+
+模板
 ::::::::::
 
-Most WSGI applications are responding to HTTP requests to serve content in HTML
-or other markup languages. Instead of generating directly textual content from
-Python, the concept of separation of concerns advises us to use templates. A
-template engine manages a suite of template files, with a system of hierarchy
-and inclusion to avoid unnecessary repetition, and is in charge of rendering
-(generating) the actual content, filling the static content of the templates
-with the dynamic content generated by the application.
+大多数WSGI应用会以HTML或其他标记语言作为HTTP请求的响应。关注点分离的概念建议我们采用模板，而不是直接从Python中产生文本内容。模板引擎管理着一系列的模板文件，采用层次系统和包含系统来避免不必要的重复，并负责渲染（生成）实际的内容，利用应用产生的动态内容来填充模板的静态内容。
 
-As template files are
-sometimes written by designers or front-end developers, it can be difficult to
-handle increasing complexity.
+由于模板文件有时会由设计人员或者前端开发者来编写，因此处理起不断增长的复杂性会很困难。
 
-Some general good practices apply to the part of the application passing
-dynamic content to the template engine, and to the templates themselves.
+对于如何把应用中的动态内容传递给模板引擎和模板本身，有一些通用且好的实践可供参考：
 
-- Template files should be passed only the dynamic
-  content that is needed for rendering the template. Avoid
-  the temptation to pass additional content "just in case":
-  it is easier to add some missing variable when needed than to remove
-  a likely unused variable later.
+- 应当只把渲染时必要的动态内容传递给模板文件。避免传递额外的内容“以防万一”：添加缺失的变量远比移除一个不用的变量要容易。
 
-- Many template engines allow for complex statements
-  or assignments in the template itself, and many
-  allow some Python code to be evaluated in the
-  templates. This convenience can lead to uncontrolled
-  increase in complexity, and often make it harder to find bugs.
+- 许多模板引擎允许在模板中使用复杂的语句或赋值，并且还允许在模板中调用Python代码。这种便捷会导致复杂性的不可控，进而使得很难找到bug。
 
-- It is often necessary to mix JavaScript templates with
-  HTML templates. A sane approach to this design is to isolate
-  the parts where the HTML template passes some variable content
-  to the JavaScript code.
+- 通常情况下需要把Javascript模板与HTML模板混合。对于这种设计来说，一个明智的方式是把需要由HTML模板传递变量内容到JavaScript代码的部分隔离。。
 
 
 
 Jinja2
 ------
-`Jinja2 <http://jinja.pocoo.org/>`_ is a very well-regarded template engine.
+`Jinja2 <http://jinja.pocoo.org/>`_ 是一个得到普遍好评的模板引擎。
 
-It uses a text-based template language and can thus be used to generate any
-type markup, not just HTML. It allows customization of filters, tags, tests
-and globals. It features many improvements over Django's templating system.
+它采用基于文本的模板语言，这样就可以用于生成任何类型的标记语言，不仅仅是HTML。Jinja2允许定制过滤器、标签、测试以及全局内容。相比于Django的模板系统，Jinja2有许多的改进。
 
-Here some important html tags in Jinja2:
+这里是Jinja2中一些重要的HTML标签：
 
 .. code-block:: html
 
-    {# This is a comment #}
+    {# 这是注释 #}
 
-    {# The next tag is a variable output: #}
+    {# 下一个标签是变量输出 #}
     {{title}}
 
-    {# Tag for a block, can be replaced through inheritance with other html code #}
+    {# 块标签，通过继承可以被其他html代码替换 #}
     {% block head %}
     <h1>This is the head!</h1>
     {% endblock %}
 
-    {# Output of an array as an iteration #}
+    {# 迭代输出数组 #}
     {% for item in list %}
     <li>{{ item }}</li>
     {% endfor %}
 
 
-The next listings is an example of a web site in combination with the Tornado
-web server. Tornado is not very complicated to use.
+接下来的代码清单是一个与Tornado服务器结合的web站点示例。Tornado使用起来并不复杂。
+
 
 .. code-block:: python
 
-    # import Jinja2
+    # 导入Jinja2
     from jinja2 import Environment, FileSystemLoader
 
-    # import Tornado
+    # 导入Tornado
     import tornado.ioloop
     import tornado.web
 
-    # Load template file templates/site.html
+    # 载入模板文件 templates/site.html
     TEMPLATE_FILE = "site.html"
     templateLoader = FileSystemLoader( searchpath="templates/" )
     templateEnv = Environment( loader=templateLoader )
     template = templateEnv.get_template(TEMPLATE_FILE)
 
-    # List for famous movie rendering
+    # 用于渲染的著名电影列表
     movie_list = [[1,"The Hitchhiker's Guide to the Galaxy"],[2,"Back to future"],[3,"Matrix"]]
 
-    # template.render() returns a string which contains the rendered html
+    # template.render() 返回包含有渲染后html的字符串
     html_output = template.render(list=movie_list,
                             title="Here is my favorite movie list")
 
-    # Handler for main page
+    # 主页的处理器
     class MainHandler(tornado.web.RequestHandler):
         def get(self):
-            # Returns rendered template string to the browser request
+            # 返回渲染后的模板字符串到浏览器
             self.write(html_output)
 
-    # Assign handler to the server root  (127.0.0.1:PORT/)
+    # 设定路由  (127.0.0.1:PORT/)
     application = tornado.web.Application([
         (r"/", MainHandler),
     ])
     PORT=8884
     if __name__ == "__main__":
-        # Setup the server
+        # 设置服务器
         application.listen(PORT)
         tornado.ioloop.IOLoop.instance().start()
 
-The :file:`base.html` file can be used as base for all site pages which are
-for example implemented in the content block.
+:file:`base.html` 文件可以作为所有站点页面的基础，这些站点页面实现其中的内容块即可。
 
 .. code-block:: html
 
@@ -355,7 +258,7 @@ for example implemented in the content block.
     </head>
     <body>
     <div id="content">
-        {# In the next line the content from the site.html template will be added #}
+        {# 下一行会由site.html模板中的内容填充 #}
         {% block content %}{% endblock %}
     </div>
     <div id="footer">
@@ -366,9 +269,7 @@ for example implemented in the content block.
     </body>
 
 
-The next listing is our site page (:file:`site.html`) loaded in the Python
-app which extends :file:`base.html`. The content block is automatically set
-into the corresponding block in the :file:`base.html` page.
+下一代码清单是我们Python应用载入的的站点页面（ :file:`site.html` ），该页面扩展了 :file:`base.html` 。内容块会自动嵌入到 :file:`base.html` 页面对应的块中。
 
 .. code-block:: html
 
@@ -388,28 +289,19 @@ into the corresponding block in the :file:`base.html` page.
     {% endblock %}
 
 
-Jinja2 is the recommended templating library for new Python web applications.
+对于新的Python web应用，Jinja2是比较推荐的模板库。
+
 
 Chameleon
 ---------
 
-`Chameleon <https://chameleon.readthedocs.org/>`_ Page Templates are an HTML/XML template
-engine implementation of the `Template Attribute Language (TAL) <http://en.wikipedia.org/wiki/Template_Attribute_Language>`_,
-`TAL Expression Syntax (TALES) <http://chameleon.readthedocs.org/en/latest/reference.html#expressions-tales>`_,
-and `Macro Expansion TAL (Metal) <http://chameleon.readthedocs.org/en/latest/reference.html#macros-metal>`_ syntaxes.
+`Chameleon <https://chameleon.readthedocs.org/>`_ 页面模板是一个HTML/XML模板引擎，该引擎实现了 `模板属性语言 (TAL) <http://en.wikipedia.org/wiki/Template_Attribute_Language>`_ 、 `TAL表达式语法 (TALES) <http://chameleon.readthedocs.org/en/latest/reference.html#expressions-tales>`_ 和 `宏扩展TAL (Metal) <http://chameleon.readthedocs.org/en/latest/reference.html#macros-metal>`_ 语法。
 
-Chameleon is available for Python 2.5 and up (including 3.x and pypy), and
-is commonly used by the `Pyramid Framework <http://trypyramid.com>`_.
+Chameleon可用于Python 2.5及以上版本（包括3.x和pypy），常用于 `Pyramid框架 <http://trypyramid.com>`_ 。
 
-Page Templates add within your document structure special element attributes
-and text markup. Using a set of simple language constructs, you control the
-document flow, element repetition, text replacement and translation. Because
-of the attribute-based syntax, unrendered page templates are valid HTML and can
-be viewed in a browser and even edited in WYSIWYG editors. This can make
-round-trip collaboration with designers and prototyping with static files in a
-browser easier.
+页面模板会在你的文档结构中添加特殊的元素属性和文本标记。通过使用一组简单的语言构造，你可以控制文档流、元素的重复、文本的替换和转化。由于是基于属性的语法，未渲染的页面模板是合法的HTML，所以可以在浏览器中查看，也可以在WYSIWYG的编辑器中编辑。这使得与设计师来回的协作，以及在浏览器中使用静态文件构建原型变得更加容易。
 
-The basic TAL language is simple enough to grasp from an example:
+基本的TAL语言可以很容易的从下面的例子中了解：
 
 .. code-block:: html
 
@@ -427,10 +319,7 @@ The basic TAL language is simple enough to grasp from an example:
   </html>
 
 
-The `<span tal:replace="expression" />` pattern for text insertion is common
-enough that if you do not require strict validity in your unrendered templates,
-you can replace it with a more terse and readable syntax that uses the pattern
-`${expression}`, as follows:
+`<span tal:replace="expression" />` 是插入文本的模式，它是如此常见，以至于当你不需要保证未渲染的模板严格合法时，你可以使用更加简短可读的语法来替换，即 `${expression}` ，具体如下：
 
 .. code-block:: html
 
@@ -448,21 +337,16 @@ you can replace it with a more terse and readable syntax that uses the pattern
   </html>
 
 
-But keep in mind that the full `<span tal:replace="expression">Default Text</span>`
-syntax also allows for default content in the unrendered template.
+但是请记住完整的 `<span tal:replace="expression">Default Text</span>` 语法还允许在未渲染的模板中包含默认内容。
 
-Being from the Pyramid world, Chameleon is not widely used.
+由于Chameleon来自Pyramid世界，所以并未广泛使用。
 
 Mako
 ----
 
-`Mako <http://www.makotemplates.org/>`_ is a template language that compiles to Python
-for maximum performance. Its syntax and api is borrowed from the best parts of other
-templating languages like Django and Jinja2 templates. It is the default template
-language included with the `Pylons and Pyramid <http://www.pylonsproject.org/>`_ web
-frameworks.
+`Mako <http://www.makotemplates.org/>`_ 是一种会编译为Python的模板语言，以达到性能最大化。它的语法和API借鉴于其他模板语言（比如Django和Jinja2）最好的部分，它是 `Pylons and Pyramid <http://www.pylonsproject.org/>`_ web框架包含的默认模板语言。
 
-An example template in Mako looks like:
+Mako模板示例如下：
 
 .. code-block:: html
 
@@ -484,17 +368,18 @@ An example template in Mako looks like:
         </tr>
     </%def>
 
-To render a very basic template, you can do the following:
+
+要想渲染一个最基本的模板，你可以这样做：
 
 .. code-block:: python
 
     from mako.template import Template
     print(Template("hello ${data}!").render(data="world"))
 
-Mako is well respected within the Python web community.
+在Python web社区，Mako备受推崇。
 
-.. rubric:: References
+.. rubric:: 参考
 
-.. [1] `The mod_python project is now officially dead <http://blog.dscpl.com.au/2010/06/modpython-project-is-now-officially.html>`_
+.. [1] `mod_python项目已死 <http://blog.dscpl.com.au/2010/06/modpython-project-is-now-officially.html>`_
 .. [2] `mod_wsgi vs mod_python <http://www.modpython.org/pipermail/mod_python/2007-July/024080.html>`_
-.. [3] `Benchmark of Python WSGI Servers <http://nichol.as/benchmark-of-python-web-servers>`_
+.. [3] `Python WSGI服务器基准测试 <http://nichol.as/benchmark-of-python-web-servers>`_
