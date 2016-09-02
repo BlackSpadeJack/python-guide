@@ -1,55 +1,39 @@
-Network Applications
+网络应用
 ====================
-
 
 
 HTTP
 ::::
 
-The Hypertext Transfer Protocol (HTTP) is an application protocol for
-distributed, collaborative, hypermedia information systems. HTTP is the
-foundation of data communication for the World Wide Web.
+超文本传输协议是一种用于分布式、协作化、超媒体信息系统的应用协议。HTTP是万维网中数据交互的基础。
 
 Requests
 --------
 
-Python’s standard urllib2 module provides most of the HTTP capabilities you
-need, but the API is thoroughly broken. It was built for a different time —
-and a different web. It requires an enormous amount of work (even method
-overrides) to perform the simplest of tasks.
+Python标准库中的urllib2模块提供了你可能会用到的绝大部分HTTP功能，然而，该模块的API却十分难用。该模块是为不同时间段、不同web构建的。所以，即使要完成一个很简单的任务也需要大量的工作（甚至需要重写一些方法）。
 
-Requests takes all of the work out of Python HTTP — making your integration
-with web services seamless. There’s no need to manually add query strings to
-your URLs, or to form-encode your POST data. Keep-alive and HTTP connection
-pooling are 100% automatic, powered by urllib3, which is embedded within
-Requests.
 
-- `Documentation <http://docs.python-requests.org/en/latest/index.html>`_
+Requests做了Python HTTP的所有工作 — 可以无缝的集成web服务。通过使用Requests，不再需要人工添加查询字符串到URL中，又或者编码POST数据。Keep-alive以及HTTP连接池都是100%的自动完成，这是通过内嵌在Requests中的urllib3来完成的，
+
+- `参考文档 <http://docs.python-requests.org/en/latest/index.html>`_
 - `PyPi <http://pypi.python.org/pypi/requests>`_
 - `GitHub <https://github.com/kennethreitz/requests>`_
 
 
-Distributed Systems
+分布式系统
 ::::::::::::::::::::
 
 
 ZeroMQ
 ------
 
-ØMQ (also spelled ZeroMQ, 0MQ or ZMQ) is a high-performance asynchronous
-messaging library aimed at use in scalable distributed or concurrent
-applications. It provides a message queue, but unlike message-oriented
-middleware, a ØMQ system can run without a dedicated message broker. The
-library is designed to have a familiar socket-style API.
+ØMQ（也写作ZeroMQ、0MQ或ZMQ）是一个高性能的异步消息库，旨在用于高扩展性的分布式或并发应用中。它提供了一个消息队列，但与面向消息的中间件有所不同，
+ØMQ系统不需要特定的消息协商器就可以运行。库本身的设计与socket API有着相似的接口。
 
 RabbitMQ
 --------
 
-RabbitMQ is an open source message broker software that implements the Advanced
-Message Queuing Protocol (AMQP).  The RabbitMQ server is written in the Erlang
-programming language and is built on the Open Telecom Platform framework for
-clustering and failover. Client libraries to interface with the broker are
-available for all major programming languages.
+RabbitMQ是一个实现了高级消息队列协议（AMQP）的开源消息协商器软件。RabbitMQ服务器采用Erlang编程语言实现，并且构建在开放电信平台（OTP）上来达到集群化和容错。所有主流的编程语言都实现了与协商器交互的客户端。
 
-- `Homepage <http://www.rabbitmq.com/>`_
-- `GitHub Organization <https://github.com/rabbitmq?page=1>`_
+- `主页 <http://www.rabbitmq.com/>`_
+- `GitHub组织 <https://github.com/rabbitmq?page=1>`_
