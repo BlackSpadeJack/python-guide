@@ -109,7 +109,7 @@ Gunicorn有着很明智合理的默认配置。然而，一些其他服务器，
 Waitress
 --------
 
-`Waitress <http://waitress.readthedocs.org>`_ 也是一个纯Python的WSGI服务器，声称有着“非常可接受的性能”。其文档并不太详细，但是确实提供了一些Gunicorn没有提供的优秀功能（如HTTP请求缓冲）。
+`Waitress <https://waitress.readthedocs.io>`_ 也是一个纯Python的WSGI服务器，声称有着“非常可接受的性能”。其文档并不太详细，但是确实提供了一些Gunicorn没有提供的优秀功能（如HTTP请求缓冲）。
 
 Waitress在Python web开发社区正在变得越来越流行。
 
@@ -118,7 +118,7 @@ Waitress在Python web开发社区正在变得越来越流行。
 uWSGI
 -----
 
-`uWSGI <https://uwsgi-docs.readthedocs.org>`_ 为构建托管服务提供了全栈的功能。除了进程管理、进程监控以及其他功能，uWSGI还可以作为多种编程语言和协议的应用服务器 - 当然包括Python和WSGI。uWSGI既可以作为独立的web路由器来运行，也可以运行在全功能的web服务器（比如Nginx和Apache）后端。后一种情况下，web服务器可以配置uWSGI与应用之间采用 `uwsgi协议 <https://uwsgi-docs.readthedocs.org/en/latest/Protocol.html>`_ 来通信。uWSGI的web服务器支持通过传递环境变量和进一步的调整来动态配置Python。更详细的信息，参见 `uWSGI魔法变量 <https://uwsgi-docs.readthedocs.org/en/latest/Vars.html>`_ 。
+`uWSGI <https://uwsgi-docs.readthedocs.io>`_ 为构建托管服务提供了全栈的功能。除了进程管理、进程监控以及其他功能，uWSGI还可以作为多种编程语言和协议的应用服务器 - 当然包括Python和WSGI。uWSGI既可以作为独立的web路由器来运行，也可以运行在全功能的web服务器（比如Nginx和Apache）后端。后一种情况下，web服务器可以配置uWSGI与应用之间采用 `uwsgi协议 <https://uwsgi-docs.readthedocs.io/en/latest/Protocol.html>`_ 来通信。uWSGI的web服务器支持通过传递环境变量和进一步的调整来动态配置Python。更详细的信息，参见 `uWSGI魔法变量 <https://uwsgi-docs.readthedocs.io/en/latest/Vars.html>`_ 。
 
 我不建议使用uWSGI，除非你知道为什么需要使用。
 
@@ -295,7 +295,7 @@ Jinja2
 Chameleon
 ---------
 
-`Chameleon <https://chameleon.readthedocs.org/>`_ 页面模板是一个HTML/XML模板引擎，该引擎实现了 `模板属性语言 (TAL) <http://en.wikipedia.org/wiki/Template_Attribute_Language>`_ 、 `TAL表达式语法 (TALES) <http://chameleon.readthedocs.org/en/latest/reference.html#expressions-tales>`_ 和 `宏扩展TAL (Metal) <http://chameleon.readthedocs.org/en/latest/reference.html#macros-metal>`_ 语法。
+`Chameleon <https://chameleon.readthedocs.io/>`_ 页面模板是一个HTML/XML模板引擎，该引擎实现了 `模板属性语言 (TAL) <http://en.wikipedia.org/wiki/Template_Attribute_Language>`_ 、 `TAL表达式语法 (TALES) <https://chameleon.readthedocs.io/en/latest/reference.html#expressions-tales>`_ 和 `宏扩展TAL (Metal) <https://chameleon.readthedocs.io/en/latest/reference.html#macros-metal>`_ 语法。
 
 Chameleon可用于Python 2.5及以上版本（包括3.x和pypy），常用于 `Pyramid框架 <http://trypyramid.com>`_ 。
 

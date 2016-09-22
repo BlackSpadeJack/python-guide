@@ -52,7 +52,7 @@ Homebrew也会安装Setuptools和 ``pip``。
 
 Setuptools可以让你通过一个命令 ``easy_install`` 在网上下载和安装任何兼容的Python软件包。同时也可以很方便的利用它们在自己开发的Python软件里添加网络安装功能。
 
-``pip`` 是一个易于安装和管理Python包的工具，相比于 ``easy_install`` 更加推荐 ``pip``。它在 `几个方面 <https://python-packaging-user-guide.readthedocs.org/en/latest/pip_easy_install/#pip-vs-easy-install>`_ 要更加优于 ``easy_install`` ，并且维护良好。
+``pip`` 是一个易于安装和管理Python包的工具，相比于 ``easy_install`` 更加推荐 ``pip``。它在 `几个方面 <https://python-packaging-user-guide.readthedocs.io/en/latest/pip_easy_install/#pip-vs-easy-install>`_ 要更加优于 ``easy_install`` ，并且维护良好。
 
 
 虚拟环境
