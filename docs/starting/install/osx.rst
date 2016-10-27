@@ -60,7 +60,7 @@ Setuptools可以让你通过一个命令 ``easy_install`` 在网上下载和安�
 
 虚拟环境主要是通过为各自创建虚拟的Python环境，把不同项目所依赖的包分隔在各自独立的空间内。这样就能解决“项目X依赖版本1.x，但是项目Y需要版本4.x”的窘境，同时保持全局site-packages目录的干净和可管理性。
 
-例如，你可以在一个需要Django 1.3的项目上进行开发工作，同时维护一个依赖Django 1.0的项目。
+例如，你可以在一个需要Django 1.10的项目上进行开发工作，同时维护一个依赖Django 1.8的项目。
 
 请参考文档 :ref:`虚拟环境 <virtualenvironments-ref>` 来使用。也可以使用 :ref:`virtualenvwrapper <virtualenvwrapper-ref>` 来更简单的管理你的虚拟环境。
 

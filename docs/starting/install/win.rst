@@ -3,13 +3,13 @@
 在Windows上安装Python
 ======================
 
-首先，到官网下载Python 2.7的 `最新版本 <https://www.python.org/ftp/python/2.7.10/python-2.7.10.msi>`_。如果你想确保安装的是最新版本，在 `官网主页 <http://python.org>`_ 上点击Downloads > Windows链接。
+首先，到官网下载Python 2.7的 `最新版本 <https://www.python.org/ftp/python/2.7.12/python-2.7.12.msi>`_ 。如果你想确保安装的是最新版本，在 `官网主页 <http://python.org>`_ 上点击Downloads > Windows链接。
 
 Windows的Python以MSI的格式提供，双击即可安装。MSI格式的文件允许Windows管理员使用标准工具来自动化安装。
 
-按照设计，Python会安装到带有版本号的目录中，例如，Python 2.7会安装到 :file:`C:\\Python27\\`，这样可以在系统上安装多个版本而不引起冲突。当然，对于Python文件，只能有一个解释器作为默认的。这样的安装方式也不会自动修改环境变量 :envvar:`PATH`，这样你就可以控制运行哪个Python版本。
+按照设计，Python会安装到带有版本号的目录中，例如，Python 2.7会安装到 :file:`C:\\Python27\\` ，这样可以在系统上安装多个版本而不引起冲突。当然，对于Python文件，只能有一个默认解释器。这种安装方式也不会自动修改环境变量 :envvar:`PATH` ，这样你就可以控制运行哪个Python版本。
 
-如果使用时，每次都要输入Python解释器的完整路径，显得太麻烦，所以最好把默认版本的Python目录添加到环境变量 :envvar:`PATH`。假设你的Python安装位置是 :file:`C:\\Python27\\`，把下述内容添加到 :envvar:`PATH`：
+如果使用时，每次都要输入Python解释器的完整路径，显得太麻烦，所以最好把默认版本的Python目录添加到环境变量 :envvar:`PATH` 。假设你的Python安装位置是 :file:`C:\\Python27\\` ，把下述内容添加到 :envvar:`PATH` ：
 
 .. code-block:: console
 
@@ -21,7 +21,7 @@ Windows的Python以MSI的格式提供，双击即可安装。MSI格式的文件�
 
     [Environment]::SetEnvironmentVariable("Path", "$env:Path;C:\Python27\;C:\Python27\Scripts\", "User")
 
-当安装Python包时，一些新的命令会放置在上面的第二个目录（:file:`Scripts`）中，所以把这个目录添加到环境变量中是很有用的。
+当安装Python包时，一些新的命令会放置在上面的第二个目录（ :file:`Scripts` ）中，所以把这个目录添加到环境变量中是很有用的。
 
 虽然说使用Python前不需要额外的安装或者配置，但是我强烈建议你在开始构建Python应用程序前，按照下一节描述的步骤安装工具和库。特别的，任何时候你都该安装Setuptools和pip，这样会让你更方便的使用其他第三方Python库。
 
@@ -42,7 +42,7 @@ Setuptools + Pip
 
 虚拟环境主要是通过为各自创建虚拟的Python环境，把不同项目所依赖的包分隔在各自独立的空间内。这样就能解决“项目X依赖版本1.x，但是项目Y需要版本4.x”的窘境，同时保持全局site-packages目录的干净和可管理性。
 
-例如，你在一个需要Django 1.3的项目上进行开发，同时维护一个依赖Django 1.0的项目。
+例如，你在一个需要Django 1.10的项目上进行开发，同时维护一个依赖Django 1.8的项目。
 
 请参考文档 :ref:`Virtual Environments <virtualenvironments-ref>` 来使用。也可以使用 :ref:`virtualenvwrapper <virtualenvwrapper-ref>` 来更简单的管理你的虚拟环境。
 
