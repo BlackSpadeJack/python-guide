@@ -1,60 +1,49 @@
 GUI应用
 ================
 
-Alphabetical list of GUI Applications.
+按字母排序的GUI应用列表。
 
 Camelot
 -------
-`Camelot <http://www.python-camelot.com>`_ provides components for building
-applications on top of Python, SQLAlchemy and Qt.  It is inspired by
-the Django admin interface.
+`Camelot <http://www.python-camelot.com>`_ 受Django管理界面的启发，在Python、SQLAlchemy和Qt的基础上提供了各种组件来构建应用。
 
-The main resource for information is the website:
-http://www.python-camelot.com
-and the mailing list https://groups.google.com/forum/#!forum/project-camelot
+可用的参考资源主要是其网站：http://www.python-camelot.com 和邮件列表: https://groups.google.com/forum/#!forum/project-camelot
 
 Cocoa
 -----
-.. note:: The Cocoa framework is only available on OS X. Don't pick this if you're writing a cross-platform application!
+.. note:: Cocoa框架仅用于OS X，如果要编写跨平台的应用就不要考虑了。
 
-GTk
+GTK
 ---
-PyGTK provides Python bindings for the GTK+ toolkit. Like the GTK+ library
-itself, it is currently licensed under the GNU LGPL. It is worth noting that
-PyGTK only currently supports the Gtk-2.X API (NOT Gtk-3.0). It is currently
-recommended that PyGTK not be used for new projects and that existing
-applications be ported from PyGTK to PyGObject.
+PyGTK提供了对GTK+工具集的Python绑定。与GTK+库本身一样，也采用了GNU LGPL许可证。需要注意的是PyGTK目前只支持GTK-2.X的API（不支持GTK-3.0）。
+对于新项目来说目前已不推荐使用PyGTK，现有的PyGTK应用也推荐迁移到PyGObject上。
 
-PyGObject aka (PyGi)
+PyGObject 又叫(PyGi)
 --------------------
-`PyGObject <https://wiki.gnome.org/Projects/PyGObject>`_ provides Python bindings, which gives access to the entire GNOME software platform.
-It is fully compatible with GTK+ 3. Here is a tutorial to get started with `Python GTK+ 3 Tutorial <https://python-gtk-3-tutorial.readthedocs.io/en/latest/>`_.
+`PyGObject <https://wiki.gnome.org/Projects/PyGObject>`_ 提供了整个GNOME软件平台的Python绑定，且与GTK+ 3完全兼容。
+这里有一份入门资料 `Python GTK+ 3指南 <https://python-gtk-3-tutorial.readthedocs.io/en/latest/>`_ 。
 
-`API Reference <http://lazka.github.io/pgi-docs/>`_
+`API参考 <http://lazka.github.io/pgi-docs/>`_
 
 Kivy
 ----
-`Kivy <http://kivy.org>`_ is a Python library for development of multi-touch
-enabled media rich applications. The aim is to allow for quick and easy
-interaction design and rapid prototyping, while making your code reusable
-and deployable.
+`Kivy <http://kivy.org>`_ 是一个Python库，可用于开发多点触屏的富媒体应用。其目标是为了能够进行快速轻松的交互设计及快速原型，
+同时保证代码的可重用性和可部署性。
 
-Kivy is written in Python, based on OpenGL and supports different input devices
-such as: Mouse, Dual Mouse, TUIO, WiiMote, WM_TOUCH, HIDtouch, Apple's products
-and so on.
+Kivy采用Python编写，基于OpenGL，支持多种输入设备，例如：鼠标、双向鼠标、TUIO触摸协议、Wii控制器、
+Windows的WM_TOUCH消息、HID触摸以及苹果公司的产品等等。
 
-Kivy is actively being developed by a community and is free to use. It operates
-on all major platforms (Linux, OSX, Windows, Android).
+Kivy由一个社区进行开发，非常活跃且免费使用，可在所有主流平台（Linux, OSX, Windows, Android）上使用。
 
-The main resource for information is the website: http://kivy.org
+主要资源可以在其网站上找到：http://kivy.org
 
 PyObjC
 ------
-.. note:: Only available on OS X. Don't pick this if you're writing a cross-platform application.
+.. note:: Cocoa框架仅用于OS X，如果要编写跨平台的应用就不要考虑了。
 
 PySide
 ------
-PySide is a Python binding of the cross-platform GUI toolkit Qt.
+PySide是对跨平台GUI工具Qt的Python绑定。
 
   pip install pyside
 
@@ -62,51 +51,38 @@ https://wiki.qt.io/Category:LanguageBindings::PySide::Downloads
 
 PyQt
 ----
-.. note:: If your software does not fully comply with the GPL you will need a commercial license!
+.. note:: 如果你的软件没有完全遵从GPL，那么你需要购买商业许可证！
 
-PyQt provides Python bindings for the Qt Framework (see below).
+PyQt提供了Qt框架的Python绑定（见后面）。
 
 http://www.riverbankcomputing.co.uk/software/pyqt/download
 
 PyjamasDesktop (pyjs Desktop)
 -----------------------------
-PyjamasDesktop is a port of Pyjamas. PyjamasDesktop is application widget set
-for desktop and a cross-platform framework. (After release v0.6 PyjamasDesktop
-is a part of Pyjamas (Pyjs)). Briefly, it allows the exact same Python web
-application source code to be executed as a standalone desktop application.
+PyjamasDesktop是Pyjamas的移植。PyjamasDesktop是一组用于桌面及跨平台框架的组件集，v0.6版本之后，PyjamasDesktop成了Pyjamas(Pyjs)的一部分。
+简单来说，就是可以采用与Python Web应用完全相同的代码但是作为独立桌面应用来执行。
 
-`Python Wiki for PyjamasDesktop <http://wiki.python.org/moin/PyjamasDesktop>`_.
+`PyjamasDesktop的Python Wiki <http://wiki.python.org/moin/PyjamasDesktop>`_ 。
 
-The main website; `pyjs Desktop <http://pyjs.org/>`_.
+主页： `pyjs Desktop <http://pyjs.org/>`_ 。
 
 Qt
 --
-`Qt <http://qt-project.org/>`_ is a cross-platform application framework that
-is widely used for developing software with a GUI but can also be used for
-non-GUI applications.
+`Qt <http://qt-project.org/>`_ 是一个广泛使用的跨平台应用框架，可用于开发GUI以及非GUI应用。
 
 Tk
 --
-Tkinter is a thin object-oriented layer on top of Tcl/Tk. **It has the advantage
-of being included with the Python standard library, making it the most
-convenient and compatible toolkit to program with.**
+Tkinter是Tcl/Tk之上很薄的面向对象包装层。 **可以使用Python标准库的优势使得它成为最方便且兼容性良好编程工具集** 。
 
-Both Tk and Tkinter are available on most Unix platforms, as well as on Windows
-and Macintosh systems. Starting with the 8.0 release, Tk offers native look and
-feel on all platforms.
+Tk和Tkinter二者都可以在大多数的Unix平台使用，当然Windows及Macintosh系统也同样支持。从8.0版本开始，Tk在所有平台提供了原生界面的支持。
 
-There's a good multi-language Tk tutorial with Python examples at
-`TkDocs <http://www.tkdocs.com/tutorial/index.html>`_. There's more information
-available on the `Python Wiki <http://wiki.python.org/moin/TkInter>`_.
+
+`TkDocs <http://www.tkdocs.com/tutorial/index.html>`_ 上有一份非常不错的多语言Tk教程，包含了Python的示例。更多信息见 `Python Wiki <http://wiki.python.org/moin/TkInter>`_ 。
 
 wxPython
 --------
-wxPython is a GUI toolkit for the Python programming language. It allows
-Python programmers to create programs with a robust, highly functional
-graphical user interface, simply and easily. It is implemented as a Python
-extension module (native code) that wraps the popular wxWidgets cross platform
-GUI library, which is written in C++.
+wxPython是一个Python语言的GUI工具集。可以让Python程序员很简便的创建出健壮、功能丰富的图形用户界面。
+它是一个Python的扩展模块（原生代码），通过包装著名的跨平台C++ GUI库wxWidgets来实现。
 
-**Install (Stable) wxPython**
-*go to http://www.wxpython.org/download.php#stable and download the appropriate
-package for your OS.*
+**安装wxPython：**
+*到 http://www.wxpython.org/download.php#stable 下载适合你所使用操作系统的包。*
