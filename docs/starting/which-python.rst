@@ -101,9 +101,9 @@ PythonNet
 
 `Python for .NET <http://pythonnet.github.io/>`_ 作为一个包，为本地已安装的Python和.NET公共语言运行时（CLR)提供了无缝的集成。它采取与IronPython （见上文）相反的方法，与其说是竞争，不如说是互补。
 
-通过结合Mono，PythonNet可以让安装在非Windows操作系统（比如OS X和Linux）上的Python与.NET框架进行互操作。除了IronPython外，它也是可以毫无冲突运行的。
+通过结合Mono，pythonnet可以让安装在非Windows操作系统（比如OS X和Linux）上的Python与.NET框架进行互操作。除了IronPython外，它也是可以毫无冲突运行的。
 
-PythonNet支持范围从Python 2.3到Python 2.7。 [#pythonnet_ver]_
+Pythonnet支持范围从Python 2.6到Python 3.5。 [#pythonnet_ver1]_ [#pythonnet_ver2]_
 
 .. [#pypy_ver] http://pypy.org/compat.html
 
@@ -111,6 +111,8 @@ PythonNet支持范围从Python 2.3到Python 2.7。 [#pythonnet_ver]_
 
 .. [#iron_ver] http://ironpython.codeplex.com/releases/view/81726
 
-.. [#pythonnet_ver] http://pythonnet.github.io/readme.html
+.. [#pythonnet_ver1] https://travis-ci.org/pythonnet/pythonnet
+
+.. [#pythonnet_ver2] https://ci.appveyor.com/project/TonyRoberts/pythonnet-480xs
 
 .. [#pep373_eol] https://www.python.org/dev/peps/pep-0373/#id2

@@ -195,6 +195,6 @@ Python的闭包采用 *延迟绑定* 。这意味着，闭包中使用到的变�
 
 如果已经存在字节码文件，下述命令可以移除这些文件::
 
-    $ find . -name "*.pyc" -delete
+    $ find . -type f -name "*.py[co]" -delete -or -type d -name "__pycache__" -delete
 
 在项目的跟目录下执行这行命令，所有的 ``.pyc`` 文件瞬间就会消失的无影无踪。6不6?

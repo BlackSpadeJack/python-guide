@@ -14,13 +14,10 @@ OS X自带的Python版本对于学习来说绰绰有余，但是却不太适合�
 
 接下来我们安装一个真正的Python。
 
-在安装Python前，需要先安装GCC。GCC可以通过下载 `Xcode <http://developer.apple.com/xcode/>`_ 来获取, 或者使用体积更小的 `Command Line Tools <https://developer.apple.com/downloads/>`_ （必须拥有Apple账号），再或者更加小的 `OSX-GCC-Installer <https://github.com/kennethreitz/osx-gcc-installer#readme>`_ 。
+在安装Python前，需要先安装一个C编译器。通过运行 ``xcode-select --install`` 可以以最快方式安装Xcode命令行工具。你也可以从Mac应用商店下载完整版本的 `Xcode <http://developer.apple.com/xcode/>`_ ，或者是最小化的非官方版本 `OSX-GCC-Installer <https://github.com/kennethreitz/osx-gcc-installer#readme>`_ 。
 
 .. note::
-    如果已经安装Xcode，最好不要再安装OSX-GCC-Installer。同时安装的话，可能会引起难以排查的问题。
-
-.. note::
-    如果你是新安装的Xcode，你需要通过在终端执行 ``xcode-select --install`` 来添加相应的命令行工具。
+    如果你已经安装了Xcode或者计划使用Homebrew，那就不要安装OSX-GCC-Install。同时安装二者时，软件会出现问题，并且很难诊断出原因。
 
 尽管OS X自带了大量的UNIX工具集，但是熟悉Linux系统的开发人员会发现缺少一个关键的组件：一个像样的包管理工具。`Homebrew <http://brew.sh>`_ 填补了这块空白。
 
@@ -41,6 +38,13 @@ OS X自带的Python版本对于学习来说绰绰有余，但是却不太适合�
 .. code-block:: console
 
     $ brew install python
+
+或者Python 3:
+
+.. code-block:: console
+
+    $ brew install python3
+
 
 这会花费一两分钟。
 

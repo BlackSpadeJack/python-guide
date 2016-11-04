@@ -39,6 +39,8 @@ Sphinx_ 无疑是最为流行的Python文档工具。 **赶紧去使用吧。** 
 
 网上还有一个 **非常好用** 且 **免费** 的 Sphinx_ 文档托管网站: `Read The Docs`_ 。赶紧去使用吧。通过配置它的提交钩子到你的源码仓库，可以实现自动化构建你的文档。
 
+运行 Sphinx_ 时，会自动导入你的代码，并利用Python的内省机制提取出代码中的函数、方法以及类签名。同时还会提取出相应的文档字符串，并编译成结构良好又易于阅读的项目文档。
+
 .. note::
 
     Sphinx以由API生成文档而闻名，但是对于常规项目文档的生成也可以完成的很好。本文档就是使用 Sphinx_ 构建并托管于 `Read The Docs`_ 上。
@@ -89,6 +91,24 @@ reStructuredText
 
 一些工具会使用文档字符串来实现一些不仅限于文档的行为，比如单元测试的逻辑。这看上去很不错，但是你不会因为“这里就是这么做的”而永远不出错。
 
+Sphinx_ 会把你的文档字符串解析为reStructuredText，然后渲染成HTML，这就可以很方便的把示例代码嵌入到文档项目中。
+
+另外, Doctest_ 会读取所有格式为Python命令行输出样式（以">>>"为前缀）的文档字符串，然后执行这部分文档内容，检测命令的结果是否匹配紧接着的下一行内容。开发人员可以利用示例代码和函数使用说明一起来注释源码，顺便还可以确保代码被测试通过。
+
+::
+    
+    def my_function(a, b):
+        """
+        >>> my_function(2, 3)
+        6
+        >>> my_function('a', 3)
+        'aaa'
+        """
+        return a * b
+
+.. _Doctest: https://docs.python.org/3/library/doctest.html
+
+
 文档字符串与块注释
 ~~~~~~~~~~~~~~~~~~
 
@@ -102,6 +122,58 @@ reStructuredText
 	...
 
 .. see also:: 进一步阅读关于文档字符串的内容： :pep:`257`
+
+与块注释不同，文档字符串内建于Python语言自身。这意味着在运行时你可以使用Python强大的内省能力来访问文档字符串，相比而言，注释则会被优化掉。几乎每一个Python对象都可以从 `__doc__` 属性或者内建的 `help()` 函数来访问文档字符串。
+
+块注释通常用于解释一段代码是做什么的，或者阐述一个算法，而文档字符串更倾向于向别人解释你的代码中的某个函数如何使用以及一个函数、类或模块的主要目的是什么。
+
+
+编写文档字符串
+~~~~~~~~~~~~~~~~~~
+
+根据所写函数、方法或类的复杂性，有时候单行文档字符串非常适用。以下是一个非常鲜明的例子::
+
+    def add(a, b):
+        """把两个数字相加，返回结果"""
+        return a + b
+
+文档字符串应该以一种非常易懂的方式来描述函数。对于一些不重要的函数或者类，简单的把函数签名（比如： `add(a, b) -> result` ）嵌入到文档字符串完全没必要。因为如果需要的话，使用Python的 `inspect` 模块可以很容易找到这些信息，而且通过阅读代码也可以很容易明白。
+
+然而，在更大更复杂的项目中，最好还是对一个函数给出足够多的信息：它做了什么、有可能抛出什么异常、返回什么或者一些参数的相关细节。
+
+Numpy项目使用了一种流行的文档风格来给出代码更详细的信息，称为 `Numpy风格`_ 的文档字符串。尽管这种注释风格会比之前的示例占用更多行，但是也让开发人员可以为一个方法、函数或类提供更多的信息::
+
+    def random_number_generator(arg1, arg2):
+        """
+        Summary line.
+
+        Extended description of function.
+
+        Parameters
+        ----------
+        arg1 : int
+            Description of arg1
+        arg2 : str
+            Description of arg2
+
+        Returns
+        -------
+        int
+            Description of return value
+
+        """
+        return 42
+
+插件 `sphinx.ext.napoleon`_ 可以让Sphinx解析这种风格的文档字符串，方便你把Numpy风格的文档字符串包含到项目中。
+
+最后，采用什么风格编写文档字符串并不重要，它们的目的都是为那些需要阅读或者修改你代码的人而服务的。只要这些文档是正确的、可以理解的并且你得到了想要知道的，那么赋予它的使命就算完成了。
+
+
+如果还想对文档字符进一步的了解，参考 :pep:`257`
+
+.. _thomas-cokelaer.info: http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html
+.. _sphinx.ext.napoleon: https://sphinxcontrib-napoleon.readthedocs.io/
+.. _`NumPy风格`: http://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html
 
 
 其他工具

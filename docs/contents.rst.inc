@@ -63,6 +63,7 @@ Python应用场景
    scenarios/xml
    scenarios/json
    scenarios/crypto
+   scenarios/ml
    scenarios/clibs
 
 
