@@ -158,6 +158,8 @@ tox是一个管理自动测试所需环境以及配置多解释器测试的工�
 
 tox使用简单的ini格式配置文件，以便允许你配置复杂的多参数测试模型。 
 
+    `tox <https://tox.readthedocs.io/en/latest/>`_
+
 
 `Unittest2 <http://pypi.python.org/pypi/unittest2>`_
 -----------------------------------------------------
