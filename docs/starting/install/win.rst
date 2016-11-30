@@ -30,7 +30,7 @@ Setuptools + Pip
 
 最至关重要的的第三方Python软件是Setuptools，该工具扩展了标准库中disutils的安装和打包功能。一旦安装好它们，你就可以使用一个简单的命令来下载、安装、卸载任何兼容的Python软件包。同时也可以很方便的利用它们在自己开发的Python软件里添加网络安装功能。
 
-通过运行 `ez_setup.py <https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py>`_ 这个脚本可以获得Windows上最新的Setuptools。
+通过运行 `ez_setup.py <https://bootstrap.pypa.io/ez_setup.py>`_ 这个脚本可以获得Windows上最新的Setuptools。
 
 这时候就会新出现一个可以使用的命令：**easy_install**。不过这个命令已经被很多人认为废弃了，所以我们需要安装它的替代：**pip**。不像easy_install，Pip允许卸载安装好的包，并且维护也很活跃。
 
