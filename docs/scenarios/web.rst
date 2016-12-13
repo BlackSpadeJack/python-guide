@@ -151,14 +151,10 @@ Heroku维护了 `详细的文章 <https://devcenter.heroku.com/categories/python
 Heroku是当前比较推荐的用于部署Python web应用的PaaS。
 
 
-Gondor
-------
+Eldarion
+--------
 
-`Gondor <https://gondor.io/>`_ 是一个专用于Django和Pinax应用的PaaS。Gondor建议的Django版本是1.6，并且支持Python 2.7上的WSGI应用。如果使用 :file:`local_settings.py` 来存储站点特有配置信息，Gondor可以自动的配置你的Django站点。
-
-Gondor有一份指南说明如何部署 `Django项目 <https://gondor.io/support/django/setup/>`_ 。
-
-Gondor是由一家小型公司运营的，聚焦于帮助企业成功部署Python和Django。
+`Eldarion <http://eldarion.cloud/>`_ （之前叫做Gondor）由Kubernetes、CoreOS和Docker构建的PaaS平台。该平台支持任何WSGI应用，并且有一份指南说明如何部署 `Django项目 <https://eldarion-gondor.github.io/docs/how-to/setup-deploy-first-django-project/>`_ 。
 
 
 模板

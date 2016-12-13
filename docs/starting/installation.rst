@@ -8,9 +8,10 @@
 安装指南
 ---------
 
-这部分内容涉及了 :ref:`Python 2.7 <which-python>` 、setuptools、pip以及virtualenv
+这部分内容涉及了 :ref:`Python <which-python>` 、setuptools、pip以及virtualenv
 的安装设置，为后续开发做准备。
 
-- :ref:`Mac OS X <install-osx>`.
-- :ref:`Microsoft Windows <install-windows>`.
-- :ref:`Linux <install-linux>`.
+- :ref:`Python 3 on MacOS <install3-osx>`.
+- :ref:`Python 2 on MacOS <install-osx>`.
+- :ref:`Python 2 on Microsoft Windows <install-windows>`.
+- :ref:`Python 2 on Ubuntu Linux <install-linux>`.

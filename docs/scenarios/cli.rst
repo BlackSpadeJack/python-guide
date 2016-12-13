@@ -22,7 +22,7 @@ Clint
 Click
 -----
 
-`click <http://click.pocoo.org/>`_  (Command-line Interface Creation Kit，首字母缩写) 是一个使用尽可能少的代码来实现命令行接口的Python包，该包采用了组合方式来实现，目前开发中，很快就可以使用了(译者注：其实早就可以用了）。这个“命令行接口构造工具”具有开箱即用的默认设置，同时不失高可配置性。
+`click <http://click.pocoo.org/>`_  (Command-line Interface Creation Kit，首字母缩写) 是一个使用尽可能少的代码来实现命令行接口的Python包，该包采用了组合方式来实现。这个“命令行接口构造工具”具有开箱即用的默认设置，同时不失高可配置性。
 
 docopt
 ------

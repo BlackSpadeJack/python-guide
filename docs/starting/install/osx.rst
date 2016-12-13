@@ -3,7 +3,10 @@
 在Mac OS X安装Python
 =====================
 
-最新的Mac OS X，El Capitan **带有开箱即用的Python 2.7**。
+.. note::
+    查看 :ref:`如何在OS X中安装Python 3<install3-osx>`.
+
+最新的Mac OS X，Sierra **带有开箱即用的Python 2.7** 。
 
 虽然说使用Python前不需要额外的安装或者配置，但是我强烈建议你在开始构建Python应用程序前，按照下一节描述的步骤安装工具和库。特别的，任何时候你都该安装Setuptools和pip，这样会让你更方便的使用其他第三方Python库。
 
@@ -18,6 +21,10 @@ OS X自带的Python版本对于学习来说绰绰有余，但是却不太适合�
 
 .. note::
     如果你已经安装了Xcode或者计划使用Homebrew，那就不要安装OSX-GCC-Install。同时安装二者时，软件会出现问题，并且很难诊断出原因。
+
+.. note::
+    如果是全新安装的XCode，还需要通过在终端运行 ``xcode-select --install`` 来添加命令行工具。
+
 
 尽管OS X自带了大量的UNIX工具集，但是熟悉Linux系统的开发人员会发现缺少一个关键的组件：一个像样的包管理工具。`Homebrew <http://brew.sh>`_ 填补了这块空白。
 
@@ -56,7 +63,7 @@ Homebrew也会安装Setuptools和 ``pip``。
 
 Setuptools可以让你通过一个命令 ``easy_install`` 在网上下载和安装任何兼容的Python软件包。同时也可以很方便的利用它们在自己开发的Python软件里添加网络安装功能。
 
-``pip`` 是一个易于安装和管理Python包的工具，相比于 ``easy_install`` 更加推荐 ``pip``。它在 `几个方面 <https://python-packaging-user-guide.readthedocs.io/en/latest/pip_easy_install/#pip-vs-easy-install>`_ 要更加优于 ``easy_install`` ，并且维护良好。
+``pip`` 是一个易于安装和管理Python包的工具，相比于 ``easy_install`` 更加推荐 ``pip`` 。它在 `几个方面 <https://python-packaging-user-guide.readthedocs.io/en/latest/pip_easy_install/#pip-vs-easy-install>`_ 要更加优于 ``easy_install`` ，并且维护良好。
 
 
 虚拟环境
