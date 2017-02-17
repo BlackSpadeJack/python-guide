@@ -31,7 +31,7 @@ lxml与Requests
 
 ``tree`` 现在以良好的树状结构包含整个HTML文件，我们可以采用两种方式来遍历：XPath和CSSSelect。在这个示例中，我们主要介绍前一种。
 
-XPath是一种在HTML或XML等结构化文档中定位信息的方式。 `W3Schools <http://www.w3schools.com/xsl/xpath_intro.asp>`_ 上有对XPath很好的介绍。
+XPath是一种在HTML或XML等结构化文档中定位信息的方式。 `W3Schools <http://www.w3schools.com/xml/xpath_intro.asp>`_ 上有对XPath很好的介绍。
 
 此外还有各种各样的工具来获取元素的XPath，比如Firefox中的FireBug或者Chrome中的Inspector。如果你正在使用Chrome，你可以右击元素，选择“检查”，高亮对应的代码，再次右击然后选择 "Copy -> Copy XPath"。
 
